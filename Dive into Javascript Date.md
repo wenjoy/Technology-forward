@@ -5,4 +5,5 @@
 ## Reference
 1. [时区与JS中的Date对象
 ](https://juejin.im/post/5d23ef766fb9a07ea5681378)
-2.
+2. [How do I set a timezone in my Jest config?](https://stackoverflow.com/questions/56261381/how-do-i-set-a-timezone-in-my-jest-config)
+3. [Date.prototype MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)
