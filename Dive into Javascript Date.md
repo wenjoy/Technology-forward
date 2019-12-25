@@ -1,1 +1,1 @@
-昨天遇到个问题，在 Jenkins 上跑 UT 的时候挂掉了，但在本地是一切顺利。查看 log 发现是 snapshot 不匹配，diff 的同事有提出是因为
+昨天遇到个问题，在 Jenkins 上跑 UT 的时候挂掉了，但在本地是一切顺利。查看 log 发现是 snapshot 不匹配，diff 的地方是个 date string。同事有提出是因为`new Date`的时候没有传入时区。结果传入时区还是
