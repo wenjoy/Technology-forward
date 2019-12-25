@@ -8,7 +8,7 @@
 
 最后整理一下 Date 的方法，参考[3]
 1.`new Date()` 接受一个 datestring，这个的格式标准有两种
-`1995-12-17T03:24:00`
+`1995-12-17T03:24:00` ISO 8601 Extended Format
 ``
 
 ## Reference
