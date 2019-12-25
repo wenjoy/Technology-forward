@@ -8,10 +8,10 @@
 
 最后整理一下 Date 的方法，参考[3]
 1.`new Date()` 接受一个 datestring，这个的格式标准有两种
-`1995-12-17T03:24:00` ISO 8601 Extended Format
+`1995-12-17T03:24:00` **ISO 8601** Extended Format
 T “T” appears literally in the string, to indicate the beginning of the time element.
-`December 17, 1995 03:24:00`
-
+`December 17, 1995 03:24:00` IETF-compliant **RFC 2822** timestamps 
+其中，如果
 ## Reference
 1. [时区与JS中的Date对象
 ](https://juejin.im/post/5d23ef766fb9a07ea5681378)
