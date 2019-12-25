@@ -2,4 +2,7 @@
 
 首先大谬之处在于，`new Date` 的时候是不接受时区的。想要改变时区的话，在 nodejs 中，可以通过改变环境变量`process.env.TZ`来办到。
 
-## Reference1.
+## Reference
+1. [时区与JS中的Date对象
+](https://juejin.im/post/5d23ef766fb9a07ea5681378)
+2.
