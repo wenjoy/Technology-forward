@@ -17,8 +17,8 @@ T “T” appears literally in the string, to indicate the beginning of the time
 2.各种 toString 方法
 `new Date('1970-01-01 00:00:00.000z')`
 `toString()` "Thu Jan 01 1970 08:00:00 GMT+0800 (China Standard Time)"
-`toDateString()` 
-`toTimeString()`
+`toDateString()` Thu Jan 01 1970
+`toTimeString()` 08:00:00 GMT+0800 (China Standard Time)
 以上每个都有个`locale`版本的
 `toGMTString()`
 `toISOString()`
