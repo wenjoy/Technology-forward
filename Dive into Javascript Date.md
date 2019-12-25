@@ -25,6 +25,11 @@ T “T” appears literally in the string, to indicate the beginning of the time
 `toISOString()` 1970-01-01T00:00:00.000Z
 `toUTCString()` Thu, 01 Jan 1970 00:00:00 GMT
 
+3. 三个静态方法
+`Date.UTC()`
+`Date.now()`
+`Date.parse()`
+
 ## Reference
 1. [时区与JS中的Date对象
 ](https://juejin.im/post/5d23ef766fb9a07ea5681378)
