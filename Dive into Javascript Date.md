@@ -29,6 +29,7 @@ T “T” appears literally in the string, to indicate the beginning of the time
 `Date.UTC()`
 `Date.now()`
 `Date.parse()`
+这三个都返回一个距 unix 计时纪元的时间，毫秒级
 
 ## Reference
 1. [时区与JS中的Date对象
