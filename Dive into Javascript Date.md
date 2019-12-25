@@ -11,7 +11,8 @@
 `1995-12-17T03:24:00` **ISO 8601** Extended Format
 T “T” appears literally in the string, to indicate the beginning of the time element.
 `December 17, 1995 03:24:00` IETF-compliant **RFC 2822** timestamps 
-其中，如果
+其中，如果只传入日期`YYYY-MM-DD`会导致被认为是 UTC，这个容易引起误解
+2.
 ## Reference
 1. [时区与JS中的Date对象
 ](https://juejin.im/post/5d23ef766fb9a07ea5681378)
