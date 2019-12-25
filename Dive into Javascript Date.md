@@ -1,1 +1,1 @@
-昨天遇到个问题，在 Jenkins 上跑 UT 的时候
+昨天遇到个问题，在 Jenkins 上跑 UT 的时候挂掉了，但在本地是一切顺利。查看 log 发现是 snapshot 不匹配，diff 的同事有提出是因为
