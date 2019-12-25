@@ -6,13 +6,13 @@
 
 [1]掘金找到一篇文章详细的介绍了时区的一些概念，很有用。总结一下，GMT 格林威治时间，已经不推荐了,现在推荐的是我们大家耳熟能详的 UTC，时间协调时，支持闰秒。DST是夏令时。
 
-最后整理一下 Date 的方法，参考[3]
+最后整理一下 Date 的方法，参考[3]    
 
 1.`new Date()` 接受一个 datestring，这个的格式标准有两种
 `1995-12-17T03:24:00` **ISO 8601** Extended Format
 T “T” appears literally in the string, to indicate the beginning of the time element.
 `December 17, 1995 03:24:00` IETF-compliant **RFC 2822** timestamps 
-其中，如果只传入日期`YYYY-MM-DD`会导致被认为是 UTC，这个容易引起误解
+其中，如果只传入日期`YYYY-MM-DD`会导致被认为是 UTC，这个容易引起误解.   
 
 2.各种 toString 方法
 
