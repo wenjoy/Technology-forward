@@ -19,6 +19,7 @@ T “T” appears literally in the string, to indicate the beginning of the time
 `toString()` "Thu Jan 01 1970 08:00:00 GMT+0800 (China Standard Time)"
 `toDateString()` Thu Jan 01 1970
 `toTimeString()` 08:00:00 GMT+0800 (China Standard Time)
+`.toLocaleString('ko-KR', {timeZone: 'UTC'})`  1970. 1. 1. 오전 12:00:00
 以上每个都有个`locale`版本的
 `toGMTString()`
 `toISOString()`
