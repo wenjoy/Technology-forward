@@ -16,7 +16,10 @@ T “T” appears literally in the string, to indicate the beginning of the time
 
 2.各种 toString 方法
 `toString()`
-`toDateS
+`toDateString()`
+`toTimeString()`
+以上每个都有个`locale`版本的
+
 
 ## Reference
 1. [时区与JS中的Date对象
