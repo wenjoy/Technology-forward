@@ -15,6 +15,8 @@ T “T” appears literally in the string, to indicate the beginning of the time
 其中，如果只传入日期`YYYY-MM-DD`会导致被认为是 UTC，这个容易引起误解.   
 
 2.各种 toString 方法
+`toString()`
+`toDateS
 
 ## Reference
 1. [时区与JS中的Date对象
