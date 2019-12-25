@@ -19,7 +19,9 @@ T “T” appears literally in the string, to indicate the beginning of the time
 `toDateString()`
 `toTimeString()`
 以上每个都有个`locale`版本的
-
+`toGMTString()`
+`toISOString()`
+`toUTCString()`
 
 ## Reference
 1. [时区与JS中的Date对象
