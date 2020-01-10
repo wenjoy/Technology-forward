@@ -6,3 +6,6 @@ spy.mockRestore()
 
 mount second attachTo or hydrateIn
 
+Enzyme getDomNode()
+
+a
