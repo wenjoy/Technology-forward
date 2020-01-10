@@ -1,3 +1,5 @@
+use document.addeventListener cause hard to test, even worse, react hooks
+
 jest.mock can't just mock part of module
 can't reference other variable because hostie
 
@@ -8,4 +10,4 @@ mount second attachTo or hydrateIn
 
 Enzyme getDomNode()
 
-a
+act warning
