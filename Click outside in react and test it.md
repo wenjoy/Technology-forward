@@ -59,10 +59,10 @@ It worked but new problem occured.
 google 了一下发现这篇文章[1]，看来 document 上绑定事件是主流实现。但是这样会导致 UT 很难写。
 --![image.png](0)
 
-issues if inplement with modal
+~~issues if inplement with modal
 1. sidebar hover and click cann't keep
 2. if keep, can't close modal
-3. z-index management
+3. z-index management~~
 
 ----
 
