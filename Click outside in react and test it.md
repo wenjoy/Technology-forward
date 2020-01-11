@@ -58,7 +58,12 @@ It worked but new problem occured.
 写完测试后，我开始思考为什么要在 document 上绑定事件，不能通过该其他方式实现吗？一开始想到的是添加一个全屏的透明 modal。
 google 了一下发现这篇文章[1]，看来 document 上绑定事件是主流实现。但是这样会导致 UT 很难写。
 ![image.png](0)
-1. sidebar hover can
+1. sidebar hover and click cann't keep
+2. if keep, can't close modal
+3. z-index management
+
+
+
 Reference:
 1. [从 Dropdown 的 React 实现中学习到的
 ](https://juejin.im/post/5bb1812a6fb9a05d082a3361)
