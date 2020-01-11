@@ -57,7 +57,7 @@ It worked but new problem occured.
 ## Inplements of Click outside to Close
 写完测试后，我开始思考为什么要在 document 上绑定事件，不能通过该其他方式实现吗？一开始想到的是添加一个全屏的透明 modal。
 google 了一下发现这篇文章[1]，看来 document 上绑定事件是主流实现。但是这样会导致 UT 很难写。
---![image.png](0)
+![image.png](0)
 
 ~~issues if inplement with modal~~
 ~~1. sidebar hover and click cann't keep~~
