@@ -20,6 +20,8 @@ top等可以是负值
 ##scrollHeight
 整体高度
 ##clientHeight
+content + padding
 ##offsetHeight
+content + padding + border + scrollbar
 ##offsetTop
 ##scrollTop
