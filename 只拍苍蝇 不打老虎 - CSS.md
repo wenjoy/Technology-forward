@@ -5,6 +5,9 @@ by wenjoy
 
 ## position
 ### sticky
-## width
-### fitcontent
 
+## width
+### fit-content
+### max-content
+### min-content
+### fill-available
