@@ -5,6 +5,8 @@ by wenjoy
 
 ## position
 ### sticky
+parent 只能是 visible，否则不生效
+top等可以是负值
 
 ## width
 ### fit-content
@@ -18,3 +20,4 @@ by wenjoy
 ##scrollHeight
 ##clientHeight
 ##offsetTop
+##scrollTop
