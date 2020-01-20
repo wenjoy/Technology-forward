@@ -19,5 +19,6 @@ top等可以是负值
 #Dom
 ##scrollHeight
 ##clientHeight
+##offsetHeight
 ##offsetTop
 ##scrollTop
