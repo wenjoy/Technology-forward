@@ -1,6 +1,7 @@
 ## tomcat 
 ## servlet
 ## JSP
+JSP全名为Java Server Pages
 ## Spring
 
 ## JavaBean
