@@ -1,5 +1,9 @@
 ## tomcat 
 ## servlet
+## Ivy
+Apache Ivy是一个管理项目依赖的工具
+- ant
+- maven
 ## JSP
 JSP全名为Java Server Pages
 ## Spring
