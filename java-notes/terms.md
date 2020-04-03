@@ -1,6 +1,8 @@
 ## tomcat 
 ## servlet
 ## JPA
+- Java 持久化 API (JPA)是一个 Java 应用程序接口 规范
+- 
 ## Hibernate
 - Hibernate是一种Java语言下的对象关系映射(ORM)解决方案 
 - 2003年9月，Hibernate开发团队进入JBoss公司，开始全职开发Hibernate，从这个时候开始Hibernate得到了突飞猛进的普及和发
