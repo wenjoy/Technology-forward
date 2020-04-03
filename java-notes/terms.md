@@ -7,6 +7,8 @@
 - Hibernate是一种Java语言下的对象关系映射(ORM)解决方案 
 - 2003年9月，Hibernate开发团队进入JBoss公司，开始全职开发Hibernate，从这个时候开始Hibernate得到了突飞猛进的普及和发
 ## mybatis
+- MyBatis是一个Java持久化框架
+- 它通过XML描述符或注解把对象与存储过程或SQL语句关联起来
 ## kitManager
 ## Ivy
 Apache Ivy是一个管理项目依赖的工具
