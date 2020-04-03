@@ -2,6 +2,7 @@
 ## servlet
 ## JPA
 ## Hibernate
+-Hibernate是一种Java语言下的对象关系映射(ORM)解决方案 
 ## mybatis
 ## kitManager
 ## Ivy
