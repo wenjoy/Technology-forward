@@ -1,5 +1,9 @@
 ## tomcat 
 ## servlet
+## JPA
+## Hibernate
+## mybatis
+## kitManager
 ## Ivy
 Apache Ivy是一个管理项目依赖的工具
 - ant
