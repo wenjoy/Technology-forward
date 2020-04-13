@@ -22,8 +22,8 @@ b=moment.tz('2020-03-08 03:00', 'America/New_York')
 ```
 大白话就是在跨夏令时的时间段内，duration 也少了一个小时，莫名其妙的😂
 3. js Native 的 `getTimeOffset()`也是考虑到了夏令时的，改变你的电脑时区，然后在 3.8 前后调用这个方法就能看到区别
-4. 又想到点其他的，safari 用 new Date()的时候，严格要求 ISO8601 的格式，`YYYY-MM-DDThh:mm:ssZ` 否则就死给你看，给你报错`Invalid date`
-5. 还有个
+4. 又想到点其他的，safari 用 new Date()的时候，严格要求 ISO8601 的格式，`YYYY-MM-DDThh:mm:ssZ` 否则就死给你看，给你报错`Invalid date` 
+5. 还有个 rfc2822 的标准，Tue Feb，2，2020 类似于种的，有一堆字母，感觉正常人不会用这个来构造 date 的。
 
 ----update----
 
