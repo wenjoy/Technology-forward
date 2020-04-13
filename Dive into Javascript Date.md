@@ -1,7 +1,9 @@
 更新一波关于夏令时的
 
 1. moment 是很好的处理了夏令时的，但是要注意传入的时区
-moment().tz('Asia/')
+`moment().tz('America/New_York')`
+和
+`moment.tz('America/New_York')`
 
 2. 
 
