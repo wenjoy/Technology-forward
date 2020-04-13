@@ -6,7 +6,21 @@
 `moment.tz('America/New_York')`是不一样的。
 前者是转换时区，后者是真的改变时区
 如果直接`moment()`则用默认时区，也就是 runtime 的时区，在浏览器就是系统的时区。
-2. `America/New_York` 本来是西五区，从 3月 8 日 02：00 开始实行夏令时，手表调快一个小时，也就是说
+2. `America/New_York` 本来是西五区，从 3月 8 日 02：00 开始实行夏令时，手表调快一个小时，也就是说 3 月 8 日的 02：00 就等于 3 月 8 日的 03：000
+
+```
+a=moment.tz('2020-03-08 02:00', 'America/New_York')
+16:09:46.511 Moment {_isAMomentObject: true, _i: "2020-03-08 02:00", _f: "YYYY-MM-DD HH:mm", _isUTC: true, _pf: {…}, …}
+16:09:55.690 b=moment.tz('2020-03-08 03:00', 'America/New_York')
+16:09:55.696 Moment {_isAMomentObject: true, _i: "2020-03-08 03:00", _f: "YYYY-MM-DD HH:mm", _isUTC: true, _pf: {…}, …}
+16:09:59.452 a.format()
+16:09:59.460 "2020-03-08T03:00:00-04:00"
+16:10:03.194 b.format()
+16:10:03.195 "2020-03-08T03:00:00-04:00"
+16:10:23.176 b.diff(a)/3600000
+16:10:23.179 0
+```
+
 
 ----update----
 
