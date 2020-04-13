@@ -3,7 +3,8 @@
 1. moment 是很好的处理了夏令时的，但是要注意传入的时区
 `moment().tz('America/New_York')`
 和
-`moment.tz('America/New_York')`
+`moment.tz('America/New_York')`是不一样的。
+前者是转换时区，后者是真的改变时区
 
 2. 
 
