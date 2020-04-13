@@ -10,15 +10,15 @@
 
 ```
 a=moment.tz('2020-03-08 02:00', 'America/New_York')
-16:09:46.511 Moment {_isAMomentObject: true, _i: "2020-03-08 02:00", _f: "YYYY-MM-DD HH:mm", _isUTC: true, _pf: {…}, …}
-16:09:55.690 b=moment.tz('2020-03-08 03:00', 'America/New_York')
-16:09:55.696 Moment {_isAMomentObject: true, _i: "2020-03-08 03:00", _f: "YYYY-MM-DD HH:mm", _isUTC: true, _pf: {…}, …}
-16:09:59.452 a.format()
-16:09:59.460 "2020-03-08T03:00:00-04:00"
-16:10:03.194 b.format()
-16:10:03.195 "2020-03-08T03:00:00-04:00"
-16:10:23.176 b.diff(a)/3600000
-16:10:23.179 0
+-> Moment {_isAMomentObject: true, _i: "2020-03-08 02:00", _f: "YYYY-MM-DD HH:mm", _isUTC: true, _pf: {…}, …}
+b=moment.tz('2020-03-08 03:00', 'America/New_York')
+-> Moment {_isAMomentObject: true, _i: "2020-03-08 03:00", _f: "YYYY-MM-DD HH:mm", _isUTC: true, _pf: {…}, …}
+ a.format()
+ "2020-03-08T03:00:00-04:00"
+ b.format()
+ "2020-03-08T03:00:00-04:00"
+ b.diff(a)/3600000
+16:1 0
 ```
 
 
