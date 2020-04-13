@@ -18,9 +18,9 @@ b=moment.tz('2020-03-08 03:00', 'America/New_York')
  b.format()
  "2020-03-08T03:00:00-04:00"
  b.diff(a)/3600000
-16:1 0
+ 0
 ```
-
+3. js Native 的 `getTimeOffset()`也是考虑到了夏令时的，改变你的电脑时区，然后再 3.8
 
 ----update----
 
