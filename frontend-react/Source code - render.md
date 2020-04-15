@@ -1,4 +1,6 @@
-# React.createElement
+# React.createElement(
+type -> react 
+)
 返回的是一个对象
 ```
  {
