@@ -1,5 +1,5 @@
 # React.createElement(
-type -> react 
+type -> react component/dom name
 )
 返回的是一个对象
 ```
