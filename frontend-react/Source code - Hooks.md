@@ -1,3 +1,2 @@
-[TOC]
 # useState
 # useEffect
