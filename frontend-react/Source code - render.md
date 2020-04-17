@@ -30,7 +30,10 @@ type -> react component/dom name
 ```
 
 # 任务调度
-# emoizedProps
+# Fiber
+- memoizedProps
+- pendingProps
+- return
 
 ref : 
 1. [React.createElement源码分析](https://juejin.im/post/5dd0001cf265da0ba5279c2e)
