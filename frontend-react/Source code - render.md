@@ -31,6 +31,7 @@ type -> react component/dom name
 
 # 任务调度
 # Fiber
+- type
 - memoizedProps
 - pendingProps
 - return
