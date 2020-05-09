@@ -1,25 +1,70 @@
 ## html and browser
-1. sematic
+### 1. semantic
     1. friendly to SEO
-    2. better availability 
-2. performance optimise
+       - Search engines weigh keyword importance by their placement in the HTML hierarchy. For example, keywords enclosed in an <h1> tag are given more importance than those enclosed in an <p>
+    2. better ACCESSIBILITY 
+    3. maintenance
+
+    ref: [SEMANTIC HTML FOR MEANINGFUL WEBPAGES](http://seekbrevity.com/semantic-markup-important-web-design/)
+
+### 2. performance optimise
+![](https://user-gold-cdn.xitu.io/2018/5/28/163a4d01fdc524f3?imageslim)
+#### network transform
+
+##### cache
+
+browser has:
+  1. disk cache
+  2. memory cache
+  `E-tag, Expires`
+##### resources
+  1. reduce requests
+      1. bundle to a large file in http1.1
+  2. reduce size
+      1. (js,css,html)bundle, compress, uglify
+      2. webpack
+      3. `Content-encoding: gzip`
+      4. image
+         1. css sprites
+         2. icon font
+         3. WebP
+      5. chrome devtool -- page speed
+  3. improve speed
+      1. CDN
+#### page rendering
+
+    1. `reflow` -- CPU; `repaint` -- GPU
+    2. avoid redundant action that trigger reflow
+        1. use class to update style, don't read&write style frequently
+        2. use `visibility: hidden`
+        3. composite dom then append it once at last or use `display: none` then operate dom
+        4. as for <img>, when content loaded, its size will change will cause reflow. so always set size before image content loaded.
+    3. reflow and repaint
+        1. dom CRUD will trigger reflow
+        2. css change will trigger repaint
+
+#### js block
+    memory leak
+    be careful of closure
+#### load balance
+    pm2
+    nginx
+
+#### practice
     1. use thumbnail in list
     2. list use lazy loading or pagination and virtualized list
     3. first page render speed improvement
         1. don't place all script in <head> because that will block others action
         2. react server render
-    4. avoid redundant action that trigger reflow
-    5. bundle to a large file in http1.1
 
-3. script defer/async prefetch and preload
+ref: [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.im/post/5b0b7d74518825158e173a0c#heading-1)
+
+### 3. script defer/async prefetch and preload
     1. prefetch download without run script
     2. preload download then run script
-4. image hide and whether resource load
+### 4. image hide and whether resource load
     1. `display: none` no download
     2. `visibility: hide` will download
-5. reflow and repaint
-    1. dom CRUD will trigger reflow
-    2. css change will trigger repaint
 ## css
 1. bfc
     1. block f context
@@ -85,7 +130,7 @@
 2. cache
     1. `cache-control`: no-cache
     2. `expired-date`
-    3. `t-tag`
+    3. `E-tag`
 3. methods
     1. get idempotent
     2. put
