@@ -60,11 +60,28 @@ browser has:
 ref: [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.im/post/5b0b7d74518825158e173a0c#heading-1)
 
 ### 3. script defer/async prefetch and preload
-    1. prefetch download without run script
-    2. preload download then run script
+    1. defer
+        1. script load will wait html parsing finished.
+        2. not work for script without src
+        3. the script still part of document, DomContentLoad trigger after script loaded and pared.
+    2. async
+        1. script load will parallel with html parsing
+        2. once load completed ,will parse and block html parse
+        3. typically used for AD and google analyse js
+        4. looks it is treated as resources like image, `DomContentLoad` will not wait this script, but `load` will wait it.
+    3. prefetch download without run script
+    4. preload download then run script
+
+![comparing](https://user-gold-cdn.xitu.io/2018/2/7/1616fd1a181ab854?imageslim)
+
+    refer: [Scripts: async, defer](https://javascript.info/script-async-defer)
+
 ### 4. image hide and whether resource load
     1. `display: none` no download
     2. `visibility: hide` will download
+#### 5. `onload` `onDomContentLoad`  
+onload -- all resources including: image, font .etc loading complete  
+onDomContentLoad -- DOM load and parsing complete
 ## css
 1. bfc
     1. block f context
