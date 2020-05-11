@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lazy load</title>
+</head>
+<body>
+  <button onclick="loadImage()">load img</button> 
+  <button onclick="loadScript()">load script</button> 
+  <script>
+      function loadImage() {
+        console.log('loading image');
+        
+        const image = new Image();
+        image.src ="https://www.google.com/url?sa=i&url=https%3A%2F%2Fk.sina.cn%2Farticle_6893527975_19ae2e3a700100iqqg.html%3Fcre%3Dtianyi%26mod%3Dwpage%26loc%3D16%26r%3D32%26rfunc%3D19%26tj%3Dnone%26tr%3D32%26wm%3D8001_0003%3Fvt%3D4&psig=AOvVaw1YcMJX02ZIEYmOesXLI9a0&ust=1589280810351000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKDLvcPSq-kCFQAAAAAdAAAAABAD"
+
+      }
+      function loadScript() {
+        console.log('loading script');
+        const script = document.createElement('script');
+        script.src = "https://cdn.bootcdn.net/ajax/libs/react/16.13.1/cjs/react.development.js"
+        // document.body.appendChild(script);
+      }
+  </script>
+</body>
+</html>

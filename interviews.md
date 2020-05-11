@@ -75,10 +75,14 @@ ref: [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.i
 ![comparing](https://user-gold-cdn.xitu.io/2018/2/7/1616fd1a181ab854?imageslim)
 
     refer: [Scripts: async, defer](https://javascript.info/script-async-defer)
+    see: labs/1-1
 
 ### 4. image hide and whether resource load
-    1. `display: none` no download
+    1. `display: none` will download
     2. `visibility: hide` will download
+    3. 'background: url()` will download, but if it's parent set `display: none`, it's will not download
+
+    it's hard to remember, truly test should be `image lazy load` -- when `img` enter view port, set it's src, because as soon as src set, it will download resource, unlike script, it only download when append to document. see: lab 1-2
 #### 5. `onload` `onDomContentLoad`  
 onload -- all resources including: image, font .etc loading complete  
 onDomContentLoad -- DOM load and parsing complete
