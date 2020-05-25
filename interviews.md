@@ -9,12 +9,14 @@
       - [load balance](#load-balance)
       - [practice](#practice)
     - [3. script defer/async](#3-script-deferasync)
-    - [4. <link rel="prefetch / preload">](#4-link-rel%22prefetch--preload%22)
+    - [4. `<link rel="prefetch / preload">`](#4-link-rel%22prefetch--preload%22)
     - [4. image hide and whether resource load](#4-image-hide-and-whether-resource-load)
       - [5. `onload` `onDomContentLoad`](#5-onload-ondomcontentload)
       - [6. `crossorigin`](#6-crossorigin)
     - [7. browser cache strategy](#7-browser-cache-strategy)
     - [8. browser safety](#8-browser-safety)
+    - [9. SEO](#9-seo)
+    - [10 H5](#10-h5)
 - [css](#css)
 - [js](#js)
   - [data type](#data-type)
@@ -44,7 +46,11 @@
     - [长连接](#%e9%95%bf%e8%bf%9e%e6%8e%a5)
 - [frameworks](#frameworks)
     - [react](#react)
+      - [hooks](#hooks)
+      - [why not change state directly](#why-not-change-state-directly)
+      - [SSR](#ssr)
     - [webpack plugin and loader](#webpack-plugin-and-loader)
+    - [react native](#react-native)
 - [DSA](#dsa)
     - [sort](#sort)
     - [link table](#link-table)
@@ -123,7 +129,7 @@ ref: [网站性能优化实战——从12.67s到1.06s的故事](https://juejin.i
         2. once load completed ,will parse and block html parse
         3. typically used for AD and google analyse js
         4. looks it is treated as resources like image, `DomContentLoad` will not wait this script, but `load` will wait it.
-### 4. <link rel="prefetch / preload">
+### 4. `<link rel="prefetch / preload">`
     1. prefetch 
        1. low priority
        2. for next navigation
@@ -222,6 +228,11 @@ Notes:
 
 这就是为什么在进行 CORS 请求时 axios 需要设置 withCredentials: true。
 
+### 9. SEO
+    1. google 爬虫可以识别 js？
+    2. 百度不可以
+    3. 目前 SEO 必须服务端渲染，需要 SSR，SPA 就是 SEO 不友好，根本没有解决
+    4. 不要开黄腔，不知道就说不知道
 
 refs: 
 
@@ -232,6 +243,8 @@ refs:
 [前端网络安全必修 1 同源策略和CSRF](https://juejin.im/post/5dc8b2c5f265da4d044e41bb)
 
 [跨域资源共享 CORS 详解](https://www.ruanyifeng.com/blog/2016/04/cors.html)
+
+### 10 H5
 
 ---
 
@@ -356,6 +369,10 @@ refs:
         1. setTimeout
 ## Promise
    1. implement a Promise manually
+    2. `Promise.resolve(1).then(()=>{console.log('1')}).then(()=>{console.log('2')}); Promise.resolve(2).then(()=>{console.log('3')}).then(()=>{console.log('4')});` try to explain
+    3. [es6 promise source code](https://github.com/stefanpenner/es6-promise)
+    4. [chromium promise source code](https://chromium.googlesource.com/v8/v8/+/3.29.45/src/promise.js?autodive=0/)
+    5. [从Google V8引擎剖析Promise实现](https://segmentfault.com/a/1190000019258738)
 ## generator function specification
     1. generator function can be paused and resume
     2. return an iterator
@@ -450,9 +467,13 @@ lax：相比较strict，它允许从三方网站跳转过来的时候使用Cooki
 
 # frameworks
 ### react
-1. hooks
+#### hooks
+#### why not change state directly
+would cause not render[Why Not To Modify React State Directly](https://daveceddia.com/why-not-modify-react-state-directly/)
+#### SSR
 ### webpack plugin and loader
-
+### react native
+todo: [react-native](https://levelup.gitconnected.com/wait-what-happens-when-my-react-native-application-starts-an-in-depth-look-inside-react-native-5f306ef3250f)
 
 # DSA
 ### sort
