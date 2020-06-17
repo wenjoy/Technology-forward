@@ -1,3 +1,19 @@
+## privilege
+
+`mysql` database is used for admin user account
+
+`CREATE USER yzj@'%' IDENTIFIED BY 'yinzhengjie';`    
+`CREATE USER yinzhengjie@'%' IDENTIFIED WITH mysql_native_password BY 'yinzhengjie';`  
+`ALTER USER 'yourusername'@'localhost' IDENTIFIED WITH mysql_native_password BY 'youpassword';`
+create user
+
+
+`SELECT user,host,plugin FROM mysql.user;` list all users  
+
+`GRANT ALL on *.* TO yzj@'%';` assign privilege to  
+`SHOW GRANTS FOR yzj@'%';` check privilege 
+`FLUSH PRIVILEGES;`将user表中信息立即同步到内存中
+
 `my.cnf` location is `/usr/local/etc/my.cnf`
 `error log location` is `cat /usr/local/var/mysql/ML000631695.local.err`
 
