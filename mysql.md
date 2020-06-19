@@ -1,6 +1,10 @@
 ## privilege
 
-`mysql` database is used for admin user account
+`mysql` a client to connect to database
+`mysql -h 127.0.0.1 -P 3306 -uroot -D mysql`
+1. `-u` and `-p` space issue
+2. with `-h` and `-P` will use tcp model to connect, wireshark can capture packet
+3. without `-h`(even using `-P`) will not use tcp, use unix socket to connect server. wireshark cannt capture packet.It's defined in `my.cnf` and may encounter error [issues 1]([id001])
 
 `CREATE USER yzj@'%' IDENTIFIED BY 'yinzhengjie';`    
 `CREATE USER yinzhengjie@'%' IDENTIFIED WITH mysql_native_password BY 'yinzhengjie';`  
@@ -20,8 +24,9 @@ create user
 `/usr/local/Cellar/mysql/8.0.19_1/bin/mysqld --basedir=/usr/local/Cellar/mysql/8.0.19_1 --datadir=/Users/georgexie/workspace/projects/Finance/db --plugin-dir=/usr/local/Cellar/mysql/8.0.19_1/lib/plugin --log-error=wl005335406.active.local.err --pid-file=/Users/georgexie/workspace/projects/Finance/db/wl005335406.active.local.pid --socket=/tmp/mysql.sock --port=3306`
 
 ## issues
-### ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
-it means server is down
+### [id001]
+`ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
+it means server is down`  
 ~~seems because I start create and edit `my.cnf`. and solution is add this line 
 `datadir=/Users/georgexie/workspace/projects/Finance/db` to `.cnf`~~
 
@@ -120,3 +125,6 @@ datadir=/Users/georgexie/workspace/projects/Finance/db
 [mysqld_safe]
 timezone = '+0:00'
 ```
+
+refs: 
+1. [official doc](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html)
