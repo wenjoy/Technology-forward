@@ -128,3 +128,6 @@ timezone = '+0:00'
 
 refs: 
 1. [official doc](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html)
+2. [protocol part](https://dev.mysql.com/doc/dev/mysql-server/8.0.12/page_protocol_basics.html)
+3. [official implement of js lib to connect mysql8](https://dev.mysql.com/doc/dev/connector-nodejs/8.0/)
+4. [another lib mysqljs](https://github.com/mysqljs/mysql/pull/2233/files?file-filters%5B%5D=.js&file-filters%5B%5D=.key&file-filters%5B%5D=.md)
