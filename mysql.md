@@ -1,5 +1,10 @@
 # Mysql
 
+## Basic usage
+### create database
+`create database <dbname>`
+`create table <>`
+
 ## privilege
 
 `mysql` a client to connect to database

@@ -1,5 +1,15 @@
 
 # Notes of deno-mysql
+
+## steps to pass authentication of caching_sha2_password of mysql8.0
+1. reading official document about handshake
+2. ref similar libs on github
+3. learn about `mysql protocol` `capture packet with wireshark` `ts syntax` `rsa crypt` `arrayBuffer api of js`
+
+[Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/encrypt)
+[GPG入门教程
+](https://www.ruanyifeng.com/blog/2013/07/gpg.html)
+## official documents
 [ref mysqljs](https://github.com/mysqljs/mysql/pull/2233/files?file-filters%5B%5D=.js&file-filters%5B%5D=.key&file-filters%5B%5D=.yml&w=1)  
 [official mysql module](https://dev.mysql.com/doc/dev/connector-nodejs/8.0/)  
 [official mysql doc -- protocol part](https://dev.mysql.com/doc/dev/mysql-server/8.0.12/page_protocol_basics.html)   
@@ -13,6 +23,8 @@ Protocol Examples](https://dev.mysql.com/doc/internals/en/client-wants-native-se
 
 very nice article, concise  
 [Writing MySQL Proxy in GO for self-learning](https://medium.com/@alexanderravikovich/writing-mysql-proxy-in-go-for-learning-purposes-part-2-decoding-connection-phase-server-response-7091d87e877e)  
+
+## source code of deno-mysql
 
 `new Client` create an instance
 `connect()` -> `createConnection()` -> `new Connection()`
@@ -50,7 +62,22 @@ sequenceDiagram
 plugin name: `caching_sha2_password`
 
 
-## TypedArray
+## mysql document
+
+[explanation of this 0103 packet- auth more data ](https://dev.mysql.com/doc/internals/en/successful-authentication.html)
+
+[a blog about protocol stuff](https://promacanthus.netlify.app/experience/mysql/08-%E5%8D%8F%E8%AE%AE%E8%A7%A3%E6%9E%90-%E8%BF%9E%E6%8E%A5%E9%98%B6%E6%AE%B5/)
+
+[another lib node-mysql2](https://github.com/sidorares/node-mysql2/tree/feature/fast-caching_sha2_password)
+
+[mysql blog](https://mysqlserverteam.com/mysql-8-0-4-new-default-authentication-plugin-caching_sha2_password/)
+
+[sample of Understanding MySQL INternals by Sasha Pachev](https://www.oreilly.com/library/view/understanding-mysql-internals/0596009577/ch04.html)
+
+[interpreter of caching_sha2_password, if i saw this earlier would better](https://dev.mysql.com/doc/dev/mysql-server/8.0.12/page_caching_sha2_authentication_exchanges.html#sect_caching_sha2_info)
+
+## supplement knowledge
+### TypedArray
 ArrayBuffer是一块内存，比如var buf = new ArrayBuffer(1024)，就等于开辟了一块1kb大小的内存，但是你不能通过buf变量的索引去操作这块内存，比如console.log(buf[0])得到的是undefined，如果buf[0]=77,进行赋值操作，只是在buf对象上添加了一个属性名为‘0’的属性，并没有改变内存块中第一个字节的数据，如果想操作内存块中的数据，可以通过var int8= new Int8Array(buf)然后通过int8[0]=12;来操作这块内存中的数据，也可以用Int16Array(buf)，Int32Array(buf)等，传入的是同一块内存块的引用则操作同一块内存块，剩下的自己理解吧。
 
 
@@ -79,15 +106,9 @@ b[0] = 2;
 ```binary
 02000002 01030700 00030000 00020000 00
 ```
-[explanation of this 0103 packet- auth more data ](https://dev.mysql.com/doc/internals/en/successful-authentication.html)
+### big endian and little endian
 
-[a blog about protocol stuff](https://promacanthus.netlify.app/experience/mysql/08-%E5%8D%8F%E8%AE%AE%E8%A7%A3%E6%9E%90-%E8%BF%9E%E6%8E%A5%E9%98%B6%E6%AE%B5/)
-
-[another lib node-mysql2](https://github.com/sidorares/node-mysql2/tree/feature/fast-caching_sha2_password)
-
-[mysql blog](https://mysqlserverteam.com/mysql-8-0-4-new-default-authentication-plugin-caching_sha2_password/)
-
-[sample of Understanding MySQL INternals by Sasha Pachev](https://www.oreilly.com/library/view/understanding-mysql-internals/0596009577/ch04.html)
+mysql ` Protocol::HandshakeResponse: packet` is little endian? big endian can't match
 
 [二进制的经典应用-标志位与掩码](https://www.jianshu.com/p/5c352d83e57c)
 [“字节序”网络中的大小端问题](https://juejin.im/post/5eaf96666fb9a0432d76c6a9)
@@ -101,6 +122,12 @@ b[0] = 2;
 
 ### bit operator 
 
+### encrypt with rsa
+need to use RSA encrypt
+#### learn about RSA more
+[RSA算法原理1](https://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html)
+[RSA算法原理2](http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html)
+[node crypto](https://www.liaoxuefeng.com/wiki/1022910821149312/1023025778520640)
 
 ### parse a packet manual
 
@@ -140,10 +167,6 @@ CLIENT_CONNECT_ATTRS: 69 03 5f 6f 73 08 6f 73
 70 6c 61 74 66 6f 72 6d 06 78 38 36 5f 36 34 0c
 70 72 6f 67 72 61 6d 5f 6e 61 6d 65 05 6d 79 73
 71 6c
-
-
-
-
 
 0000   02 00 00 00 45 00 00 fe 00 00 40 00 40 06 00 00   ....E.....@.@...
 0010   7f 00 00 01 7f 00 00 01 e3 68 0c eb e3 31 f9 62   .........h...1.b
