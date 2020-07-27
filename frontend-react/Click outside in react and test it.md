@@ -1,3 +1,5 @@
+# Click Outside in React and Test It
+
 最近在项目中，为一个功能写 UT 的时候，写得特别难受。该功能是点击一个⚙，会出现一个 panel。该 panel 要求点击任何其他地方即关闭。原作者实现是在 document 里绑定了一个 mousedown事件。因为我们是 react 框架，且采用了 hooks，所以在写 UT 的时候，遇到几个问题。当时感觉这里实现是不是有问题，引入了副作用，测试写起来比较复杂。遂有此篇文章。
 ## How to write UT to cover these code
 虽然费了点手脚，但还是写完了测试。过程中也对几个此前不太扎实的地方夯实了一下。下面是过程记录：

@@ -1,3 +1,5 @@
+# Postgres
+
 Steps:
 1. `docker pull postgres`
 2. `docker run --name mypostgres -e POSTGRES_PASSWORD=123123 -d postgres`

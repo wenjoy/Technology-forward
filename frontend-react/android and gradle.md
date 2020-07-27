@@ -1,3 +1,5 @@
+# Android and Gradle
+
 useState like a construct function, if want value change, use useEffect set the value
 
 wrapper里面的是
