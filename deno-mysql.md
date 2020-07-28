@@ -1,6 +1,23 @@
 
 # Notes of deno-mysql
 
+## roadmap
+I try deno with mysql
+get error, found it is mysql 8 auth problem.
+I determine to help to realize this function
+
+I read mysql documents
+I clone deno-mysql lib to hack
+I try use wireshark capture packet
+I review tcp handshake
+I learn binary related stuff, like big endian, bit operator
+learn u int8 array
+i thought i solve the problem with hard code way, talk to repo owner found i just missed fast auth and full auth, there should be public key transport process
+I read the docs again, and ref the mysql-node2 lib, grasp the full auth way which will send public key
+then i found deno doesn't have `crypto` module like node.
+I read book about cipher
+the repo owner send me a `jsencrypt` lib, but I found it only support pkcs 1 padding, i doubt mysql only support pkcs oaep way
+
 ## steps to pass authentication of caching_sha2_password of mysql8.0
 1. reading official document about handshake
 2. ref similar libs on github
