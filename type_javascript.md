@@ -8,13 +8,15 @@
 
 process
 
-## basic
+## javascript
 JavaScript中有2个获取码点（code point）的函数:
 
 `String.prototype.charCodeAt(pos)`  
 `String.prototype.codePointAt(pos)`  
 
 codePointAt方法可以直接获取到码点，而使用charCodeAt必须调用两次，从而获取一对码点。两者对应和转换关系，请参见[Unicode与JavaScript](http://www.ruanyifeng.com/blog/2014/12/unicode.html)。
+
+---
 
 ## typescript
 1. Type 'string | undefined' is not assignable to type 'string'.

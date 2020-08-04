@@ -18,6 +18,20 @@ then i found deno doesn't have `crypto` module like node.
 I read book about cipher
 the repo owner send me a `jsencrypt` lib, but I found it only support pkcs 1 padding, i doubt mysql only support pkcs oaep way
 
+I try to use `rust`'s `rsa` lib in deno. But it's not so easy. I Do find `Deno.openPlugin` api, but it require `.so`. I have no idea about `.so` at all.
+
+    (1) .dll .obj .lib使用在windows平台下。
+        .dll：动态链接库，作为共享函数库的可执行文件。
+        .obj：目标文件，相当于源代码对应的二进制文件，未经重定位。
+        .lib：可理解为多个obj的集合，本质与.obj相同。
+
+
+
+    (2) .so .o .a使用在linux平台下。
+            .so：(share object)动态链接库，跟Windows平台类似。
+            .o： 目标文件，相当于源代码对应的二进制文件。
+            .a： 与.o类似，多个.o的集合。
+
 ## steps to pass authentication of caching_sha2_password of mysql8.0
 1. reading official document about handshake
 2. ref similar libs on github

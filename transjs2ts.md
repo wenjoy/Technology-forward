@@ -1,3 +1,5 @@
+# Transjs2ts
+
 Can't resolve '../PaymentThemeProvider'
 
 storybook's webpack config `resolve` filed extensions not include `ts` and `tsx`, after add it, works like charming
