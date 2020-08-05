@@ -32,6 +32,14 @@
 
 it because of jsencrypt return base 64 coded text not buffer, decode it to buffer, this error gone
 
+2.1 get this error again when use node `forge`:
+
+    ERR_OSSL_RSA_DATA_GREATER_THAN_MOD_LEN
+
+stack overflow [said](https://stackoverflow.com/questions/23205592/openssl-data-greater-than-mod-len): 
+
+    Asymmetric RSA keys can encrypt/decrypt only data of limited length i.e. RSAES-PKCS1-v1_5 encryption scheme defined in RFC3447 can operate on messages of length up to k - 11 octets (k is the octet length of the RSA modulus) so if you are using 2048-bit RSA key then maximum length of the plain data to be encrypted is 245 bytes.
+
 3. PEM routines:CRYPTO_internal:bad end line
   shoul d be 5 `-----`, copy paste prone to miss some hyphen see [this](https://stackoverflow.com/questions/45048858/pem-routinespem-read-biobad-end-line)
 
@@ -96,3 +104,4 @@ DER:Distinguished Encoding Rules
 [DER vs PEM](https://medium.com/@oryxx/rsa%E7%A7%98%E9%92%A5%E4%BB%8B%E7%BB%8D%E5%8F%8Aopenssl%E7%94%9F%E6%88%90%E5%91%BD%E4%BB%A4-d3fcc689513f)
 [der and pem](https://tls.mbed.org/kb/cryptography/asn1-key-structures-in-der-and-pem)
 
+12. 

@@ -245,3 +245,54 @@ capability flag
 |CLIENT_CAN_HANDLE_EXPIRED_PASSWORDS|00000000 01000000 00000000 00000000|
 |CLIENT_SESSION_TRACK|00000000 10000000 00000000 00000000|
 |CLIENT_DEPRECATE_EOF|00000001 00000000 00000000 00000000|
+
+
+---
+
+I refed a lib called 'node-mysql2', and this is its call sequences graph:
+
+```mermaid
+sequenceDiagram
+participant c as client
+participant s as server
+c ->> s: create tcp connection
+s ->> c: handshake request
+note right of s: with default auth plugin `caching_sha256_password`
+c -->> s: handshake response
+note left of c:  with `auth-plugin`
+opt method mismatch in negotiation
+s ->> c: Protocol::AuthSwitchRequest [fe]
+end
+s ->> c: ok packet
+```
+
+```mermaid
+  sequenceDiagram
+  index ->> connection: createConnection
+  connection ->> mysql server: listen on (data)
+  connection ->> connection: enqueue command.clientHandshake: 
+  mysql server -->> connection: send handshake request packet 
+  note over mysql server:  with auth plugin name
+  connection ->> connection: handlePacket
+  connection ->> connection: handle command
+  connection ->> client_handshake: handshakeInit
+  client_handshake ->> client_handshake: sendCredential
+  client_handshake -->> connection: write packet
+  connection ->> mysql server: send handshake response packet
+  note over mysql server: with auth plugin name
+  mysql server -->> connection: send auth mismatch packet  with `fe`
+  connection ->> connection: on data handler
+  note over connection: handlePacket -> command.execute ->command.next
+  connection ->> client_handshake: handshakeResult
+  client_handshake ->> auth_switch: authenticationSwitchRequest
+  auth_switch ->> connection: auth switch response
+  connection ->> mysql server: authSwitchResponse packet
+  mysql server -->> connection: authSwitchMore packet
+  note over connection, mysql server: skip middle steps
+  client_handshake ->> auth_switch: authSwitchRequestMoreData
+  auth_switch ->> caching_sha2_password: auth handle
+  caching_sha2_password -->> auth_switch: correspond packet
+  auth_switch ->> connection: send packet
+  mysql server -->> connection: auth more packet
+  auth_switch ->> caching_sha2_password: auth handle again
+```
