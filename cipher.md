@@ -104,4 +104,4 @@ DER:Distinguished Encoding Rules
 [DER vs PEM](https://medium.com/@oryxx/rsa%E7%A7%98%E9%92%A5%E4%BB%8B%E7%BB%8D%E5%8F%8Aopenssl%E7%94%9F%E6%88%90%E5%91%BD%E4%BB%A4-d3fcc689513f)
 [der and pem](https://tls.mbed.org/kb/cryptography/asn1-key-structures-in-der-and-pem)
 
-12. 
+12. [[./codes_sample/1-4]] here is an example of encrypt with `forge` and decrypt with node 'crypto`
