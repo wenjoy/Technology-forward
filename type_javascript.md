@@ -50,3 +50,21 @@ tsx support jsx syntax, see [this](https://stackoverflow.com/questions/34224007/
 - it is used by `vscode` and `tsc`
 - if `tsc` had specify a file, if will ignore `tsconfig.json` at root of project, u can specify at filed `files` in `tsconfig.json`
 - field `paths` is related to resolve module, it's like babel plugin `module-resolve` but doesn't support regex, can use `--traceResolution` to debug, see [this](https://www.tslang.cn/docs/handbook/module-resolution.html)
+
+8. `*.d.ts`
+[What are *.d.ts files for?](https://stackoverflow.com/questions/50463990/what-are-d-ts-files-for)
+distribution with lib  
+u can special in your own project, name convension is `global.d.ts`
+如果一个文件有扩展名 .d.ts，这意味着每个根级别的声明都必须以 declare 关键字作为前缀。这有利于让开发者清楚的知道，在这里 TypeScript 将不会把它编译成任何代码，同时开发者需要确保这些在编译时存在。
+see [this](https://jkchao.github.io/typescript-book-chinese/typings/ambient.html#%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6)
+
+
+books
+1. [深入理解 TypeScript](https://jkchao.github.io/typescript-book-chinese/project/compilationContext.html#tsconfig-json)
+
+FAQ:
+
+1. Error when importing untyped JS modules #15031
+  https://github.com/digitalbazaar/forge/issues/80
+2. 'Form' refers to a value, but is being used as a type here. Did you mean 'typeof Form'?
+ https://stackoverflow.com/questions/55576953/useref-refers-to-a-value-but-is-being-used-as-a-type-here/55577071

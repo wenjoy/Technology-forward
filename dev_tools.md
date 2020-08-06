@@ -122,3 +122,11 @@ bash and fish both have two mode: `vi` or `emacs`, it cost me so much time to le
 ## vim
 `:w !sudo tee %` why this works? see [this](https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work)
 this not works in `neovim`
+
+## wireshark
+## tcpdump
+## namp
+## grep
+a network packet analyzer 
+`sudo ngrep -x -q -d lo0 '' 'port 3306'`
+## tldr / [cheat](https://github.com/cheat/cheat)
