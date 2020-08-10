@@ -36,6 +36,7 @@ n字节的符号
 UTF-16 用二个字节来表示基本平面，用四个字节来表示扩展平面
 
 [An online tool](https://www.qqxiuzi.cn/bianma/Unicode-UTF.php)
+[Unicode wikipedia](https://unicode-table.com/cn/)
 
 
 String.fromCharCode(200) // utf-16

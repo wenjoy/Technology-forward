@@ -38,18 +38,32 @@ I try to use `rust`'s `rsa` lib in deno. But it's not so easy. I Do find `Deno.o
 3. learn about `mysql protocol` `capture packet with wireshark` `ts syntax` `rsa crypt` `arrayBuffer api of js`
 
 [Web Crypto API](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/encrypt)
-[GPG入门教程
-](https://www.ruanyifeng.com/blog/2013/07/gpg.html)
-## official documents
+[GPG入门教程](https://www.ruanyifeng.com/blog/2013/07/gpg.html)
+
+## mysql documents
+
 [ref mysqljs](https://github.com/mysqljs/mysql/pull/2233/files?file-filters%5B%5D=.js&file-filters%5B%5D=.key&file-filters%5B%5D=.yml&w=1)  
 [official mysql module](https://dev.mysql.com/doc/dev/connector-nodejs/8.0/)  
+[mysql blog](https://mysqlserverteam.com/mysql-8-0-4-new-default-authentication-plugin-caching_sha2_password/)
 [official mysql doc -- protocol part](https://dev.mysql.com/doc/dev/mysql-server/8.0.12/page_protocol_basics.html)   
 [another version??? official mysql doc -- protocol part](https://dev.mysql.com/doc/internals/en/mysql-packet.html)  
 [official deno doc](https://doc.deno.land/https/github.com/denoland/deno/releases/latest/download/lib.deno.d.ts#Deno.connect)
 
-原来官方文档里面有 example 啊， 早翻到的话，节省不少时间哇
-[
-Protocol Examples](https://dev.mysql.com/doc/internals/en/client-wants-native-server-wants-old.html)
+原来官方文档里面有 example 啊， 早翻到的话，节省不少时间哇  
+[Protocol Examples](https://dev.mysql.com/doc/internals/en/client-wants-native-server-wants-old.html)
+
+[explanation of this 0103 packet- auth more data ](https://dev.mysql.com/doc/internals/en/successful-authentication.html)
+
+[a blog about protocol stuff](https://promacanthus.netlify.app/experience/mysql/08-%E5%8D%8F%E8%AE%AE%E8%A7%A3%E6%9E%90-%E8%BF%9E%E6%8E%A5%E9%98%B6%E6%AE%B5/)
+
+[another lib node-mysql2](https://github.com/sidorares/node-mysql2/tree/feature/fast-caching_sha2_password)
+
+
+[sample of Understanding MySQL INternals by Sasha Pachev](https://www.oreilly.com/library/view/understanding-mysql-internals/0596009577/ch04.html)
+
+[interpreter of caching_sha2_password, if i saw this earlier would better](https://dev.mysql.com/doc/dev/mysql-server/8.0.12/page_caching_sha2_authentication_exchanges.html#sect_caching_sha2_info)
+
+[another doc](https://mariadb.com/kb/en/caching_sha2_password-authentication-plugin/)
 
 
 very nice article, concise  
@@ -93,19 +107,6 @@ sequenceDiagram
 plugin name: `caching_sha2_password`
 
 
-## mysql document
-
-[explanation of this 0103 packet- auth more data ](https://dev.mysql.com/doc/internals/en/successful-authentication.html)
-
-[a blog about protocol stuff](https://promacanthus.netlify.app/experience/mysql/08-%E5%8D%8F%E8%AE%AE%E8%A7%A3%E6%9E%90-%E8%BF%9E%E6%8E%A5%E9%98%B6%E6%AE%B5/)
-
-[another lib node-mysql2](https://github.com/sidorares/node-mysql2/tree/feature/fast-caching_sha2_password)
-
-[mysql blog](https://mysqlserverteam.com/mysql-8-0-4-new-default-authentication-plugin-caching_sha2_password/)
-
-[sample of Understanding MySQL INternals by Sasha Pachev](https://www.oreilly.com/library/view/understanding-mysql-internals/0596009577/ch04.html)
-
-[interpreter of caching_sha2_password, if i saw this earlier would better](https://dev.mysql.com/doc/dev/mysql-server/8.0.12/page_caching_sha2_authentication_exchanges.html#sect_caching_sha2_info)
 
 ## supplement knowledge
 ### TypedArray

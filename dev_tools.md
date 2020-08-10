@@ -104,21 +104,6 @@ an example for deno
     # 窗格交换位置
     Prefix + {/}
 
-## fish
-set as default `chsh -s /usr/local/bin/fish`
-
-    chsh: /usr/local/bin/fish: non-standard shell
-
-edit `/etc/shells`, add `/usr/local/bin/fish` to it
-
-### config
-`~/.config/fish/config.fish`
-### snippet
-check all available fish plugin `omf search '.*' | less -R`
-
-### NOTES:
-bash and fish both have two mode: `vi` or `emacs`, it cost me so much time to learn this when try to bind key 
-
 ## vim
 `:w !sudo tee %` why this works? see [this](https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work)
 this not works in `neovim`
@@ -130,3 +115,38 @@ this not works in `neovim`
 a network packet analyzer 
 `sudo ngrep -x -q -d lo0 '' 'port 3306'`
 ## tldr / [cheat](https://github.com/cheat/cheat)
+
+## git
+
+see [this](https://coderwall.com/p/bt93ia/extend-git-with-custom-commands)  
+tj's [git extras](https://github.com/tj/git-extras) using this trick  
+You can extend and customize git through command aliases. You can also add entirely new commands.
+
+Place any executable with a name like git-squash in your PATH and git will automatically make it available as a subcommand.
+
+You can then call it just like any other git command.
+
+
+## shell
+
+---
+
+### fish
+set as default `chsh -s /usr/local/bin/fish`
+
+    chsh: /usr/local/bin/fish: non-standard shell
+
+edit `/etc/shells`, add `/usr/local/bin/fish` to it
+
+#### config
+`~/.config/fish/config.fish`
+### snippet
+check all available fish plugin `omf search '.*' | less -R`
+
+---
+
+##### NOTES: 
+**BASH's VIM mode and EMACS mode**  
+bash and fish both have two mode: `vi` or `emacs`, it cost me so much time to learn this when try to bind key on fish. 
+
+---

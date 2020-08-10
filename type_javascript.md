@@ -19,6 +19,17 @@ codePointAt方法可以直接获取到码点，而使用charCodeAt必须调用�
 ---
 
 ## typescript
+
+### Knowledge
+1. tuple
+no special mark, same as array, just type declaration make it a tuple
+```ts
+  const tuple:[string, number] = ['test', 123]
+```
+
+
+### FAQ:
+
 1. Type 'string | undefined' is not assignable to type 'string'.
 [ non-null assertion](https://stackoverflow.com/questions/54496398/typescript-type-string-undefined-is-not-assignable-to-type-string)
 ```ts
@@ -58,13 +69,48 @@ u can special in your own project, name convension is `global.d.ts`
 如果一个文件有扩展名 .d.ts，这意味着每个根级别的声明都必须以 declare 关键字作为前缀。这有利于让开发者清楚的知道，在这里 TypeScript 将不会把它编译成任何代码，同时开发者需要确保这些在编译时存在。
 see [this](https://jkchao.github.io/typescript-book-chinese/typings/ambient.html#%E5%A3%B0%E6%98%8E%E6%96%87%E4%BB%B6)
 
+9. Cannot find module 'react' or its corresponding type declarations.
+fuck `deno` extension. disable it! uninstall it!
+
+10. Error when importing untyped JS modules #15031
+  https://github.com/digitalbazaar/forge/issues/80
+
+11. 'Form' refers to a value, but is being used as a type here. Did you mean 'typeof Form'?
+ https://stackoverflow.com/questions/55576953/useref-refers-to-a-value-but-is-being-used-as-a-type-here/55577071
+
+12. cant use square bracket notation to access object
+```ts
+const test = {
+      abc: 123
+    }
+    const prop:string ='abc' 
+    test[prop]
+    //Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ abc: number; }'.
+```
+using `keyof` see [this](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-1.html)  
+`keyof` get all the key of object as type
+
+```ts
+interface test {
+      abc:number
+    }
+    const test:test = {
+      abc: 123
+    }
+    const prop:keyof test ='abc' 
+    test[prop]
+```
+
+13. constant will get a type automatically
+```ts
+let a = 'hello'; // let a: string
+let b:typeof a;
+b = 'world' // no error here
+
+const a = 'hello'; //const a: "hello"
+let b:typeof a;
+b = 'world'// Type '"world"' is not assignable to type '"hello"'
+```
 
 books
 1. [深入理解 TypeScript](https://jkchao.github.io/typescript-book-chinese/project/compilationContext.html#tsconfig-json)
-
-FAQ:
-
-1. Error when importing untyped JS modules #15031
-  https://github.com/digitalbazaar/forge/issues/80
-2. 'Form' refers to a value, but is being used as a type here. Did you mean 'typeof Form'?
- https://stackoverflow.com/questions/55576953/useref-refers-to-a-value-but-is-being-used-as-a-type-here/55577071

@@ -6,7 +6,7 @@ Firebase, bought by Google in 2014, enables realtime databases, extensive authen
 
 ## usage
 
-![over view of firebase](./overview%20of%20firebase.png)
+![over view of firebase](./assets/overview%20of%20firebase.png)
 
 ## how to use
 [official doc of firebase](https://firebase.google.com/docs?authuser=0)
@@ -14,7 +14,7 @@ Firebase, bought by Google in 2014, enables realtime databases, extensive authen
 ### ios app
 [Setup steps](https://firebase.google.com/docs/ios/setup?hl=zh-cn)  
 
-![firebase](./firebase_steps.png)
+![firebase](./assets/firebase_steps.png)
 ### android app
 ### react native
 [firebase react Native](https://rnfirebase.io/)

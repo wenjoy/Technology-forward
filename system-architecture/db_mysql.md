@@ -4,8 +4,10 @@
 ### create database
 `create database <dbname>`
 `create table <>`
+### remove table
+`delete from <table>` 
 
-## privilege
+### privilege
 
 `mysql` a client to connect to database
 `mysql -h 127.0.0.1 -P 3306 -uroot -D mysql`
@@ -15,29 +17,39 @@
 
 `CREATE USER yzj@'%' IDENTIFIED BY 'yinzhengjie';`    
 `CREATE USER yinzhengjie@'%' IDENTIFIED WITH mysql_native_password BY 'yinzhengjie';`  
+change a password:  
 `ALTER USER 'yourusername'@'localhost' IDENTIFIED WITH mysql_native_password BY 'youpassword';`
-create user
 
+NOTE:  
+  `CREATE USER empty@'%' IDENTIFIED BY 'emptypassword';` got error code`You have an error in your SQL syntax`, because `empty` is somehow a preserve keyword
 
 `SELECT user,host,plugin FROM mysql.user;` list all users  
 
 `GRANT ALL on *.* TO yzj@'%';` assign privilege to  
-`SHOW GRANTS FOR yzj@'%';` check privilege 
+`SHOW GRANTS FOR yzj@'%';` check privilege   
 `FLUSH PRIVILEGES;`将user表中信息立即同步到内存中
 
+#### set empty password
+`update user set authentication_string='' where user='wenjoy';`  
+ref [this](https://stackoverflow.com/questions/32208000/update-user-password-in-mysql-5-7) but it mentioned `set password for 'jeff'@'localhost' = PASSWORD('mypass');` not work for, got syntax errorp;
+
+if u do know the word, u can use this to change(without validate it works or not):  
+`mysqladmin -u root -p'oldpassword' password ''` 
+
+### others files
 `my.cnf` location is `/usr/local/etc/my.cnf`
 `error log location` is `cat /usr/local/var/mysql/ML000631695.local.err`
 
 `/usr/local/Cellar/mysql/8.0.19_1/bin/mysqld --basedir=/usr/local/Cellar/mysql/8.0.19_1 --datadir=/Users/georgexie/workspace/projects/Finance/db --plugin-dir=/usr/local/Cellar/mysql/8.0.19_1/lib/plugin --log-error=wl005335406.active.local.err --pid-file=/Users/georgexie/workspace/projects/Finance/db/wl005335406.active.local.pid --socket=/tmp/mysql.sock --port=3306`
 
 ## issues
-### [id001]
+### [0x01]
 `ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)
 it means server is down`  
 ~~seems because I start create and edit `my.cnf`. and solution is add this line 
 `datadir=/Users/georgexie/workspace/projects/Finance/db` to `.cnf`~~
 
-### what is `mysqld` and `mysqld_safe`
+### [0x02] what is `mysqld` and `mysqld_safe`
 mysqld_safe是服务端工具，用于启动mysqld，并且是mysqld的守护进程
 
 mysql.server脚本其实也是调用mysqld_safe脚本去启动MySQL服务器的,但此时mysqld_safe不能使用参数选项即不能mysqld_safe --defaults-file这样的模式，此时只能使用默认的/etc/my.cnf配置文件,就算是ps -ef|grep mysql显式看到的信息也只是parse_server_arguments函数指定的参数，也是来自my.cnf，相当于mysql.server把my.cnf中的参数传递给mysqld_safe，mysqld_safe再传递给mysqld，如下看到的--datadir也是来自my.cnf
@@ -48,7 +60,7 @@ mysqld_safe多长时间检测一次mysqld呢，即多长时间去把mysqld拉起
 
 mysqld的端口默认3306，mysqld_safe没有端口
 
-### 1. start mysql by `brew services start mysql@5.7`
+### [0x03] start mysql by `brew services start mysql@5.7`
 `brew services list`
 
 ```
@@ -70,7 +82,7 @@ check error log at `/usr/local/var/mysql/wl000631764.active.local.err`:
 
 this way will not follow my `my.cnf`
 
-### 2. start by `mysql.server start`
+### [0x04] start by `mysql.server start`
 
 ```
  ERROR! The server quit without updating PID file (/Users/georgexie/workspace/projects/Finance/db/wl000631764.active.local.pid).
@@ -109,6 +121,10 @@ Going-well steps:
 May encounter issues:
 1. `ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2) `
 2. `ERROR! The server quit without updating PID file`
+
+
+I found private and public pem .etc at this location: `/var/lib/mysql/`  
+![](../assets/mysql_key_file.png)
 
 ## my.cnf
 ```bash

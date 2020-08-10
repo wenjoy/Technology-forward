@@ -4,10 +4,12 @@
 `docker images` list downloaded images    
 `docker run --name yoursql -e MYSQL_ROOT_PASSWORD=123 -d mysql` run instance from image, `mysql:tag` omit means use `latest` tag    
 `docker run -it --entrypoint /bin/bash $IMAGE_NAME -s` specify a on boot execute command
+`docker run -p host_port:container_port <image>` bind port
 `docker ps` list running instances     
 `docker logs yoursql` check log .  
 `docker exec -it yoursql bash` access docker instance
 `docker commit <container hash>` create an image form an container
+`docker rm <container hash>` remove container 
 
 
 ## Troublesome:
