@@ -26,6 +26,7 @@ I learn these knowledge:
 3. the big endian and little endian when storage and transport binary. I never heard it before.
 4. the RSA encryption. For grasp this I read two books, learn a lot. `C = P^3 mod n`, encryption is just math.
 5. I also learn encode and decode. Although we say encrypt these texts, but computer refused to storage them, it persist them as binary. so we need encode system, such as `ascii` `unicode`. I had deeper understanding of encode.
+6. base64
 
 But I was trapped here again. Because I found there is no deno lib to encrypt like `crypto` in nodejs. I felt desperate. I thought I should quit. Because I had spent too much time on this. But I knew, if i quit i will got nothing. All I learnt I will forget them. If I can't make a thing, that's same as I did noting. 
 
