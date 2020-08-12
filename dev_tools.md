@@ -104,6 +104,9 @@ an example for deno
     # 窗格交换位置
     Prefix + {/}
 
+    # resize panel see [this](https://dev.to/michael/resizing-panes-in-tmux-2da7)
+    :resize-pane -D (Resizes the current pane down by 1 cell)
+
 ## vim
 `:w !sudo tee %` why this works? see [this](https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work)
 this not works in `neovim`
@@ -132,11 +135,14 @@ You can then call it just like any other git command.
 ---
 
 ### fish
-set as default `chsh -s /usr/local/bin/fish`
+1. set as default `chsh -s /usr/local/bin/fish`, got error:
 
     chsh: /usr/local/bin/fish: non-standard shell
 
 edit `/etc/shells`, add `/usr/local/bin/fish` to it
+
+2. set prompt path to shorthand:
+  `set -U fish_prompt_pwd_dir_length {n}`, 0 mean use full path, `n` means use first `n` character represent the full path.
 
 #### config
 `~/.config/fish/config.fish`

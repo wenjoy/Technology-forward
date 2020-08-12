@@ -51,6 +51,28 @@ also see [this](https://mariusschulz.com/blog/declaring-global-variables-in-type
 4. `tsx` vs `ts`
 tsx support jsx syntax, see [this](https://stackoverflow.com/questions/34224007/is-there-any-downside-to-using-tsx-instead-of-ts-all-the-times-in-typescript)
 
+NOTES: 
+  it's important to distinguish these, example:
+```ts
+// modal.ts
+import React from 'react';
+import Modal from '@active/react-ui/modal';
+import { Global, css } from '@emotion/core';
+import { style } from 'styled-system';
+
+function ModalOverride () {
+return <Global style= {
+    css`
+    `
+  } />
+}
+export {ModalOverride};
+
+export default Modal;
+```
+
+when use `.ts` I got error `'Global' refers to a value, but is being used as a type here. Did you mean 'typeof Global'?` it's confuse me, I'm using the most common react component. After reading [this](https://github.com/emotion-js/emotion/issues/1844). I know the problem is the files's extension should be `tsx`, not `ts`
+
 5. react-responsive does not contain a default export
 - using `preset-typescript` of babel instead of `preset-env`
 - `yarn install @type/react-responsive`
