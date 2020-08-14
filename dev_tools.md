@@ -129,6 +129,12 @@ Place any executable with a name like git-squash in your PATH and git will autom
 
 You can then call it just like any other git command.
 
+## Chrome
+1. Chrome的network中无法显示OPTIONS请求"的解决方案:
+1.1 Chrome 79+ no longer shows preflight CORS requests. You can use for example Firefox to see it
+1.2 For me running Chrome 84/Win10, OPTIONS requests show up in the Network tab if you select the 'All' filter, but don't if you select the 'XHR' filter. Which is annoying because then I have to wade through dozens of other requests I don't care about. Any idea why you can't show them in both places?
+see [here](https://stackoverflow.com/questions/57410051/chrome-not-showing-options-requests-in-network-tab) and [here](https://stackoverflow.com/questions/57410051/chrome-not-showing-options-requests-in-network-tab/62590759#62590759)
+
 
 ## shell
 

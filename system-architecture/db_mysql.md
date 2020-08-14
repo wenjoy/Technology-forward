@@ -42,6 +42,10 @@ if u do know the word, u can use this to change(without validate it works or not
 
 `/usr/local/Cellar/mysql/8.0.19_1/bin/mysqld --basedir=/usr/local/Cellar/mysql/8.0.19_1 --datadir=/Users/georgexie/workspace/projects/Finance/db --plugin-dir=/usr/local/Cellar/mysql/8.0.19_1/lib/plugin --log-error=wl005335406.active.local.err --pid-file=/Users/georgexie/workspace/projects/Finance/db/wl005335406.active.local.pid --socket=/tmp/mysql.sock --port=3306`
 
+## GUI tools
+
+DBeaver
+
 ## issues
 ### [0x01]
 `ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)

@@ -45,6 +45,19 @@ with out this, i got error:
 
 9. got this error `terminated by signal SIGSEGV (Address boundary error` on Deno `1.1.1`, it gone when i upgrade to `1.2.1`
 
+
+   (1) .dll .obj .lib使用在windows平台下。
+        .dll：动态链接库，作为共享函数库的可执行文件。
+        .obj：目标文件，相当于源代码对应的二进制文件，未经重定位。
+        .lib：可理解为多个obj的集合，本质与.obj相同。
+
+
+
+    (2) .so .o .a使用在linux平台下。
+            .so：(share object)动态链接库，跟Windows平台类似。
+            .o： 目标文件，相当于源代码对应的二进制文件。
+            .a： 与.o类似，多个.o的集合
+
 ## Refs
 [Official homepage](https://www.rust-lang.org/)  
 [Book - The Rust Programming Language](https://doc.rust-lang.org/book)  
