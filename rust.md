@@ -57,6 +57,8 @@ with out this, i got error:
             .so：(share object)动态链接库，跟Windows平台类似。
             .o： 目标文件，相当于源代码对应的二进制文件。
             .a： 与.o类似，多个.o的集合
+10. Why doesn't Rust have increment and decrement operators?
+Preincrement and postincrement (and the decrement equivalents), while convenient, are also fairly complex. They require knowledge of evaluation order, and often lead to subtle bugs and undefined behavior in C and C++. x = x + 1 or x += 1 is only slightly longer, but unambiguous.
 
 ## Refs
 [Official homepage](https://www.rust-lang.org/)  
@@ -65,6 +67,8 @@ with out this, i got error:
 [Book - 通过例子学 Rust](https://rustwiki.org/zh-CN/rust-by-example/std/box.html)
 [Book - The Rust Reference](https://doc.rust-lang.org/reference/linkage.html)
 [Book - Another book](https://www.cs.brandeis.edu/~cs146a/rust/doc-02-21-2015/book/arrays-vectors-and-slices.html)
+
+[learning-rust](https://learning-rust.github.io/docs/b1.vectors.html)
 
 [Packages](https://crates.io/)  
 [Examples](https://doc.rust-lang.org/stable/rust-by-example/)  

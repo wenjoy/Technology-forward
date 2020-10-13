@@ -32,6 +32,9 @@ an example for deno
 
 ### config
 `~/.tmux.conf`
+#### let tmux use system clipboard
+`bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'`
+see [this](https://unix.stackexchange.com/questions/131011/use-system-clipboard-in-vi-copy-mode-in-tmux#:~:text=Then%20hit%20Ctrl%2Bb%20%5B%20to,be%20copied%20to%20the%20clipboard.) to get more
 
 ### mechanism
 
@@ -106,6 +109,21 @@ an example for deno
 
     # resize panel see [this](https://dev.to/michael/resizing-panes-in-tmux-2da7)
     :resize-pane -D (Resizes the current pane down by 1 cell)
+
+    # change panel layout
+    Prefix + Space
+    will cycle through 5 available panel layouts, see [this](https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux) get more
+
+    # change title
+    Just for people who came here by searching how to change the title of a tmux session:
+
+    `Ctrl + B, $` == `tmux rename-window -t <window> <newname>`
+
+    This will give you a prompt, where you can rename the active session.
+
+    To change the active window use komma instead:
+
+    `Ctrl + B, ,`
 
 ## vim
 `:w !sudo tee %` why this works? see [this](https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work)
