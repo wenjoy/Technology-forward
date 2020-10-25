@@ -7,6 +7,11 @@ import (
 )
 
 func main() {
+	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	reverse(nums, 0, 4)
+	fmt.Println(nums)
+	return
+
 	num := 10
 	char := "10"
 	fmt.Println("out", byte(num))
@@ -37,9 +42,22 @@ func main() {
 	}
 
 	rs := []rune(str1)
+	s := string(rs)
+	fmt.Println("converted: ", s)
 	l = len(rs)
 	fmt.Println("len: ", l)
 	for i := 0; i < len(rs); i++ {
 		fmt.Println(i, " --> ", rs[i], string(rs[i]))
+	}
+
+}
+func reverse(nums []int, start int, end int) {
+	count := (end - start + 1) / 2
+	for i := 0; i < count; i++ {
+		current := i + start
+		j := end - i
+		nums[current] += nums[j]
+		nums[j] = nums[current] - nums[j]
+		nums[current] -= nums[j]
 	}
 }
