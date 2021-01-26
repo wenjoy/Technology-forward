@@ -6,14 +6,16 @@
 `strconv.Itoa(10)`
 
 1.2 `"10" -> 10` 
-`~~int("10")~~`
-`strconv.Atoi("100")`
+~~int("10")~~  `strconv.Atoi("100")`
 
 1.2.1 `"10.5" -> 10.5`
 `~~float("10.5")~~`
 
 ### 2. string and convert
 [blog of Rob Pike explained string in go thoroughly](https://blog.golang.org/strings)
+`var data []byte = []byte(str)`
+
+`var str string = string(data[:])`
 
 ### 3. import in go
 3.1 no relative import in go
@@ -61,6 +63,7 @@ pointer:                 %p
   a := []string{"A", "B", "C", "D", "E"}
 	i := 2
 ```
+three ways:
 6.1 `copy(a[i:], a[i+1:]);a = a[:len(a)-1]`
 6.2 `a[i]=a[len(a)-1];a = a[:len(a)-1]`
 6.3 `a=append(a[:i], a[i+1:]...)`
@@ -68,6 +71,67 @@ pointer:                 %p
 [2 ways to delete an element from a slice](https://yourbasic.org/golang/delete-element-slice/)
 [How to delete an element from a Slice in Golang](https://stackoverflow.com/questions/37334119/how-to-delete-an-element-from-a-slice-in-golang)
 
+### 7 pass slice to function
+1. as default it copy slice, pass pointer to change the default behavior
+2. assign back to dereferenced pointer to modify the slice
+```go
+func myAppend(list *[]string, value string) {
+    *list = append(*list, value)
+}
+```
+[click me](https://stackoverflow.com/questions/49428716/pass-slice-as-function-argument-and-modify-the-original-slice)
+
+### 8 cannot use `&` with `append`
+```go
+&append([]int{}, 1) // error
+```
+[The spec says that to use & on something it has to be addressable...go doesn't make the result of a function addressable](https://stackoverflow.com/questions/30744965/how-to-get-the-pointer-of-return-value-from-function-call)
+
+### 9 gin return to json string from a slice
+`c.JSON(200, slice)`
+
+### 10 gin get post json body why use bind, not more intuitive way
+???
+
+### 11 `make([]string,1)` get `[nil]`
+`make([]string,0)` get `[]`, the first way may cause bug in `for loop`
+
+### 12 define same package in different files, cant invoke, got undefined error
+正常来说同一个package下，函数是可以相互调用的，不应该报错， 出现这种问题的原因是没有对这个package整体进行编译
+1. 多个.go文件一起编译运行 `go run a.go b.go`
+2. 直接运行这个package `go run ./`
+
+### 13 serialize and deserialize in go 
+`func Marshal(v interface{}) ([]byte, error)`  
+serialize: `data, err := json.Marshal(map[string]string)`  
+Map keys must be strings.
+
+====  
+ deserialize
+ example: 
+ ```json
+ data={
+   "name":"zhang san"
+ }
+ ```
+ 1. tag struct 
+  ```go
+  type Obj struct {
+    username string `json:"name"`
+  }
+  var obj Obj
+  err := json.Unmarshal([]byte(data), &obj)
+  ```
+  [serialize](https://code.tutsplus.com/tutorials/json-serialization-with-golang--cms-30209)  
+
+ 2. type infer
+ ```go
+  var jsonI interface{}
+  err := json.Unmarshal([]byte(data), &jsonI)
+  jsonM, ok := jsonI.(map[string]interface{})
+  value := jsonM["name"]
+ ```
+ [deserialize](https://jingwei.link/2019/03/15/golang-json-unmarshal-using.html)
 
 refs:
 1. https://learnku.com/docs/the-way-to-go
