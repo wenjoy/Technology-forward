@@ -134,5 +134,10 @@ let b:typeof a;
 b = 'world'// Type '"world"' is not assignable to type '"hello"'
 ```
 
+14. argument about prefixing 'I' to interface or not
+```Abstraction case: you should not not define an ICar interface and an associated Car class. Car is an abstraction and it should be the one used for the contract. Implementations should have descriptive, distinctive names e.g. SportsCar, SuvCar, HollowCar.``` this persuades me, I change to support not use I prefix
+[github battle ground](https://github.com/microsoft/TypeScript-Handbook/issues/121)
+[stack overflow battle ground](https://stackoverflow.com/questions/31876947/confused-about-the-interface-and-class-coding-guidelines-for-typescript/41967120#41967120)
+
 books
 1. [深入理解 TypeScript](https://jkchao.github.io/typescript-book-chinese/project/compilationContext.html#tsconfig-json)
