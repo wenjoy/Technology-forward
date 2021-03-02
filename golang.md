@@ -133,6 +133,40 @@ Map keys must be strings.
  ```
  [deserialize](https://jingwei.link/2019/03/15/golang-json-unmarshal-using.html)
 
+
+ ### 14 log.Fatal 是什么
+ `log.Fatal` will call `os.Exit(1)`
+ `defer` function will not execute
+ `panic` equal exception, and defer function will be executed
+ I encountered this issue when work on an websocket project, every time I refresh page, server will shut down with error `1011` and exit with code 1.  
+ I searched about `why websocket exit with 1011` and `keep alive in websocket` but it's not the thing.
+ finally I have to use the overkill weapon -- `debug`, and I realized 
+suspect is `log.Fatal`
+```go
+
+	for {
+		fmt.Println("wait read")
+		messageType, message, err := conn.ReadMessage()
+		if err != nil {
+			log.Fatalf("websocket read error: %v[]", err)
+			continue
+    }
+    ...
+```
+
+### 15 check io.Reader 's value
+r io.Reader  
+`b, err := ioutil.ReadAll(r)`
+
+
+### 16 how to set http request header
+The Header field of the Request is public. You may do this :
+```go
+	req, _ := http.NewRequest(http.MethodPost, "/agency", strings.NewReader(string(body)))
+req.Header.Set("name", "value")
+```
+
+
 refs:
 1. https://learnku.com/docs/the-way-to-go
 2. https://www.oreilly.com/library/view/introducing-go/9781491941997/
