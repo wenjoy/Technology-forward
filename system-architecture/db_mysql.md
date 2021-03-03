@@ -1,6 +1,28 @@
 # Mysql
 
+- [Mysql](#mysql)
+  - [Basic usage](#basic-usage)
+    - [show metadata](#show-metadata)
+    - [create database](#create-database)
+    - [remove table](#remove-table)
+    - [privilege](#privilege)
+      - [set empty password](#set-empty-password)
+    - [others files](#others-files)
+  - [GUI tools](#gui-tools)
+  - [issues](#issues)
+    - [[0x01]](#0x01)
+    - [[0x02] what is `mysqld` and `mysqld_safe`](#0x02-what-is-mysqld-and-mysqld_safe)
+    - [[0x03] start mysql by `brew services start mysql@5.7`](#0x03-start-mysql-by-brew-services-start-mysql57)
+    - [[0x04] start by `mysql.server start`](#0x04-start-by-mysqlserver-start)
+  - [my.cnf](#mycnf)
+
 ## Basic usage
+### show metadata
+`show databases;`
+`use <db_name>;`
+`show tables;`
+`select database();`
+`status;`
 ### create database
 `create database <dbname>`
 `create table <>`

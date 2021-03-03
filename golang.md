@@ -166,6 +166,8 @@ The Header field of the Request is public. You may do this :
 req.Header.Set("name", "value")
 ```
 
+### 17 [explorer this repo -- awesome go](https://github.com/avelino/awesome-go)
+
 
 refs:
 1. https://learnku.com/docs/the-way-to-go
