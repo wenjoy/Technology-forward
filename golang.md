@@ -168,6 +168,27 @@ req.Header.Set("name", "value")
 
 ### 17 [explorer this repo -- awesome go](https://github.com/avelino/awesome-go)
 
+### 18 equivalent of constructor in go
+```go
+type Thing struct {
+    Name  string
+    Num   int
+}
+func NewThing(someParameter string) *Thing {
+    p := new(Thing)
+    p.Name = someParameter
+    p.Num = 33 // <- a very sensible default value
+    return p
+}
+//or
+func makeThing(name string) Thing {
+    return Thing{name, 33}
+~~~~}
+```
+
+### 19 type alias in go
+`type T1=T2` not `type T1 T2`
+
 
 refs:
 1. https://learnku.com/docs/the-way-to-go
