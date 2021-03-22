@@ -3,6 +3,7 @@
 `docker pull mysql` download image    
 `docker images` list downloaded images    
 `docker run --name yoursql -e MYSQL_ROOT_PASSWORD=123 -d mysql` run instance from image, `mysql:tag` omit means use `latest` tag    
+`docker run --name yoursql -e MYSQL_ROOT_HOST=% -d mysql` allow all external ip access mysql server, or else only access in the container
 `docker run -it --entrypoint /bin/bash $IMAGE_NAME -s` specify a on boot execute command
 `docker run -p host_port:container_port <image>` bind port
 `docker ps` list running instances     
