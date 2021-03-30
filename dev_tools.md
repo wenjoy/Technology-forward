@@ -1,4 +1,27 @@
-# Dev tools
+- [VS code](#vs-code)
+  - [debug](#debug)
+- [Tmux](#tmux)
+  - [config](#config)
+    - [let tmux use system clipboard](#let-tmux-use-system-clipboard)
+  - [mechanism](#mechanism)
+  - [usage](#usage)
+    - [session](#session)
+    - [window](#window)
+    - [panel](#panel)
+- [vim](#vim)
+- [wireshark](#wireshark)
+- [tcpdump](#tcpdump)
+- [namp](#namp)
+- [grep](#grep)
+- [tldr / cheat](#tldr--cheat)
+- [git](#git)
+- [Chrome](#chrome)
+- [shell](#shell)
+  - [fish](#fish)
+    - [config](#config-1)
+  - [snippet](#snippet)
+      - [NOTES:](#notes)
+- [curl](#curl)
 
 ## VS code
 
@@ -180,3 +203,13 @@ check all available fish plugin `omf search '.*' | less -R`
 bash and fish both have two mode: `vi` or `emacs`, it cost me so much time to learn this when try to bind key on fish. 
 
 ---
+
+## curl
+-L follow redirect  
+-D dump header to special file  
+-o output  
+-o /dev/null don't output anywhere
+
+example:  
+`curl -sSL -D - 'https://unsplash.it/800/400/?random' -o /dev/null | grep
+location `

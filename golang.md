@@ -183,7 +183,7 @@ func NewThing(someParameter string) *Thing {
 //or
 func makeThing(name string) Thing {
     return Thing{name, 33}
-~~~~}
+}
 ```
 
 ### 19 type alias in go
