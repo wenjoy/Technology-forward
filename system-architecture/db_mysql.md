@@ -14,6 +14,7 @@
     - [[0x02] what is `mysqld` and `mysqld_safe`](#0x02-what-is-mysqld-and-mysqld_safe)
     - [[0x03] start mysql by `brew services start mysql@5.7`](#0x03-start-mysql-by-brew-services-start-mysql57)
     - [[0x04] start by `mysql.server start`](#0x04-start-by-mysqlserver-start)
+  - [syntax](#syntax)
   - [my.cnf](#mycnf)
 
 ## Basic usage
@@ -151,6 +152,13 @@ May encounter issues:
 
 I found private and public pem .etc at this location: `/var/lib/mysql/`  
 ![](../assets/mysql_key_file.png)
+
+## syntax
+当字段名与MySQL保留字冲突时，可以用字符“`”将字段名括起来：
+
+```select `from` from table;```
+
+总结:在Mysql中，当表名或字段名乃至数据库名和保留字冲突时，在sql语句里可以用撇号（`）括起来。
 
 ## my.cnf
 ```bash

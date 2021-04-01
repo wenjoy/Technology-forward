@@ -67,86 +67,91 @@ see [this](https://unix.stackexchange.com/questions/131011/use-system-clipboard-
 
 ### usage
 #### session
-    # 创建
-    tmux new # 不指定session name
-    tmux new -s [session-name]
+  1. 创建  
+  `tmux new` 不指定session name
+  `tmux new -s` [session-name]
 
-    # 删除Session
-    tmux kill-session -t [session-name]
-    tmux kill-server
+  2. 删除Session  
+  `tmux kill-session -t [session-name]`
+  `tmux kill-server`
 
-    # 列出当前Session
-    tmux ls # 
-    Prefix s # tmux 内
+  3. 列出当前Session  
+  `tmux ls`
+  `Prefix s` # tmux 内
 
-    # 恢复Session
-    tmux a -t [session-name]
-    tmux a
+  4. 恢复Session  
+  `tmux a -t [session-name]`
+  `tmux a`
 
-    # 断开Session
-    tmux detach
-    Prefix d
+  5. 断开Session  
+  `tmux detach`
+  `Prefix d`
 
-    # 重命名Session
-    Prefix $
+  6. 重命名Session  
+  `Prefix $`
 
 #### window
-    # 创建
-    Prefix c
+  1. 创建  
+  `Prefix c`
 
-    # 选择窗口
-    Prefix + [number] # 选择第n个窗口
-    Prefix + p/n	# 前/后一个窗口
+  2. 选择窗口  
+  `Prefix + [number]` # 选择第n个窗口
+  `Prefix + p/n`	# 前/后一个窗口
 
-    # 关闭窗口
-    Prefix &
-    exit
+  3. 关闭窗口  
+  `Prefix &`
+  `exit`
 
-    # 列出所有window（包含其他Session）
-    Prefix w 
-    j/k # 前后选择
+  4. 列出所有window（包含其他Session）  
+  `Prefix w `
+  `j/k # 前后选择`
 
-    # 搜索窗口
-    Prefix f
+  5. 搜索窗口  
+  `Prefix f`
 
-    # 重命名当前窗口
-    Prefix ,
+  6. 重命名当前窗口  
+  `Prefix ,`
 
 #### panel
-    # 创建
-    Prefix %	# 水平窗格
-    Prefix '"'	# 垂直窗格
+  1. 创建  
+  `Prefix %	# 水平窗格`
+  `Prefix '"'	# 垂直窗格`
 
-    # 关闭
-    Prefix x
+  2. 关闭  
+  `Prefix x`
 
-    # 切换
-    Prefix o # 在窗格间切换
-    Prefix q	# 显示窗格编号，输入编号切换
+  3. 切换  
+  `Prefix o` # 在窗格间切换
+  `Prefix q`	# 显示pane编号，输入编号切换
 
-    # 将当前窗格切换到新窗口
-    Prefix ！
+  4. 将当前窗格切换到新窗口  
+  `Prefix ！`
 
-    # 窗格交换位置
-    Prefix + {/}
+  5. 窗格交换位置  
+  `Prefix + {` or `Prefix + }`
 
-    # resize panel see [this](https://dev.to/michael/resizing-panes-in-tmux-2da7)
-    :resize-pane -D (Resizes the current pane down by 1 cell)
+  6. resize panel see [this](https://dev.to/michael/resizing-panes-in-tmux-2da7)  
+  `:resize-pane -D (Resizes the current pane down by 1 cell)`
 
-    # change panel layout
-    Prefix + Space
-    will cycle through 5 available panel layouts, see [this](https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux) get more
+  7. change panel layout  
+  `Prefix Space`
+  will cycle through 5 available panel layouts, see [this](https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux) get more
 
-    # change title
-    Just for people who came here by searching how to change the title of a tmux session:
+  8. change title  
+  Just for people who came here by searching how to change the title of a tmux session:
 
-    `Ctrl + B, $` == `tmux rename-window -t <window> <newname>`
+  `Prefix $` or `tmux rename-window -t <window> <newname>`
 
-    This will give you a prompt, where you can rename the active session.
+  This will give you a prompt, where you can rename the active session.
 
-    To change the active window use komma instead:
+  To change the active window use comma instead:
 
-    `Ctrl + B, ,`
+  `Prefix ,` this will not work if set default title as below
+
+  set default title:
+  `set -g window-status-format '#I:#(pwd="#{pane_current_path}"; echo ${pwd####*/})#F'`
+
+----
 
 ## vim
 `:w !sudo tee %` why this works? see [this](https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work)
