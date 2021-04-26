@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "promises-aplus-tests": "^2.1.2"
+  },
+  "scripts": {
+    "testone": "promises-aplus-tests promise.js --bail --color",
+    "test": "promises-aplus-tests promise.js --reporter tap --color"
+  }
+}
