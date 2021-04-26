@@ -5,50 +5,74 @@ class Promise {
   state = PENDING
   data = null
   reason = null
+  onFulfilledCallbacks = []
+  onRejectedCallbacks = []
   constructor(executor) {
     const resolve = (data) => {
       if (this.state === PENDING) {
         this.state = FULFILLED
         this.data = data
-        this.onFulfill(data)
+        this.onFulfilledCallbacks.forEach(c => c(data))
       }
     }
     const reject = (reason) => {
-
       if (this.state === PENDING) {
         this.state = REJECTED
         this.reason = reason
-        this.onReject(reason)
+        this.onRejectedCallbacks.forEach(c => c(reason))
       }
     }
     try {
       executor(resolve, reject);
-    }catch(err) {
+    } catch (err) {
       reject(err)
     }
   }
-  onFulfill = () => {
-    // console.log('noop fulfill')
-  }
-  onReject = () => {
-    // console.log('noop reject')
-  }
 
-  deferCall = (callback) => {
-    setTimeout(callback,0)
-  }
+  // deferCall = (callback) => {
+  //   setTimeout(callback, 0)
+  // }
 
   then(onFulfill, onReject) {
     onFulfill = typeof onFulfill === 'function' ? onFulfill : v => v
     onReject = typeof onReject === 'function' ? onReject : e => { throw e }
     const promise = new Promise((resolve, reject) => {
       if (this.state === PENDING) {
-        this.onFulfill = (d) => { resolve(onFulfill(d)) }
-        this.onReject = (r) => { reject(onReject(r)) }
+        this.onFulfilledCallbacks.push((d) => {
+          setTimeout(() => {
+            try {
+              resolve(onFulfill(d))
+            } catch (err) {
+              reject(err)
+            }
+          })
+        })
+        this.onRejectedCallbacks.push((r) => {
+          setTimeout(() => {
+            try {
+              resolve(onReject(r))
+            } catch (err) {
+              reject(err)
+            }
+          })
+        })
       } else if (this.state === REJECTED) {
-        this.deferCall(()=>{reject(onReject(this.reason))})
+        setTimeout(() => {
+          try {
+            const x = onReject(this.reason)
+            resolve(x)
+          } catch (err) {
+            reject(err)
+          }
+        })
       } else {
-        this.deferCall(()=>{resolve(onFulfill(this.data))})
+        setTimeout(() => {
+          try {
+            resolve(onFulfill(this.data))
+          } catch (err) {
+            reject(err)
+          }
+        })
       }
     })
     return promise
@@ -64,16 +88,15 @@ Promise.deferred = function () {
   return dfd;
 }
 
-var isFulfilled = false;
-const d = Promise.deferred()
-d.promise.then(()=>{
-  console.log('1')
-  console.log(isFulfilled)
+const p = new Promise((res, rej)=>{
+  rej(123)
+}).then(null, ()=>{throw 'ttt'})
+.then(()=>{
+  console.log('dont')
+}, (e)=>{
+  console.log('e: ', e);
 })
+.then(()=>{console.log('res')}, ()=>{console.log('rej')})
 
-setTimeout(()=>{
-  d.resolve('123')
-  isFulfilled= true
-},50)
 
 module.exports = Promise
