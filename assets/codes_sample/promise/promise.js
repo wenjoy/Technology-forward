@@ -32,6 +32,11 @@ class Promise {
   // deferCall = (callback) => {
   //   setTimeout(callback, 0)
   // }
+  resolvePromise(value, promise) {
+    // console.log('value: ', value, promise, value===promise);
+    if(value === promise) {throw 'TypeError'}
+    return value
+  }
 
   then(onFulfill, onReject) {
     onFulfill = typeof onFulfill === 'function' ? onFulfill : v => v
@@ -68,8 +73,9 @@ class Promise {
       } else {
         setTimeout(() => {
           try {
-            resolve(onFulfill(this.data))
+            resolve(this.resolvePromise(onFulfill(this.data), promise))
           } catch (err) {
+            console.log('err: ', err);
             reject(err)
           }
         })
@@ -89,9 +95,10 @@ Promise.deferred = function () {
 }
 
 const p = new Promise((res, rej)=>{
-  rej(123)
-}).then(null, ()=>{throw 'ttt'})
-.then(()=>{
+  res(123)
+}).then(()=>p)
+
+p.then(()=>{
   console.log('dont')
 }, (e)=>{
   console.log('e: ', e);
