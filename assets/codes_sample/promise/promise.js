@@ -29,13 +29,47 @@ class Promise {
     }
   }
 
-  // deferCall = (callback) => {
-  //   setTimeout(callback, 0)
-  // }
-  resolvePromise(value, promise) {
-    // console.log('value: ', value, promise, value===promise);
-    if(value === promise) {throw 'TypeError'}
-    return value
+  resolvePromise(x, promise, resolve, reject) {
+    if (x === promise) { return (reject(new TypeError('same promise'))) }
+
+    // if (x instanceof Promise) {
+    //   x.then((d) => {
+    //     resolve(d)
+    //   }, (r) => {
+    //     reject(r)
+    //   })
+    //   return
+    // }
+
+    let called = false
+
+    if ((typeof x === 'object' && x !== null) || typeof x === 'function') {
+      try {
+        let then = x.then
+        if (typeof then === 'function') {
+          then.call(x, (y) => {
+            if (called) return
+            called = true
+            this.resolvePromise(y, promise, resolve, reject)
+          }, (r) => {
+            if (called) return
+            called = true
+            reject(r)
+          })
+          return
+        } else {
+          if (called) return
+          called = true
+          resolve(x)
+        }
+      } catch (err) {
+        if (called) return
+        called = true
+        reject(err)
+      }
+    }
+
+    return resolve(x)
   }
 
   then(onFulfill, onReject) {
@@ -47,6 +81,7 @@ class Promise {
           setTimeout(() => {
             try {
               resolve(onFulfill(d))
+              // this.resolvePromise(onFulfill(d), promise, resolve, reject)
             } catch (err) {
               reject(err)
             }
@@ -56,6 +91,7 @@ class Promise {
           setTimeout(() => {
             try {
               resolve(onReject(r))
+              // this.resolvePromise(onReject(r), promise, resolve, reject)
             } catch (err) {
               reject(err)
             }
@@ -64,8 +100,7 @@ class Promise {
       } else if (this.state === REJECTED) {
         setTimeout(() => {
           try {
-            const x = onReject(this.reason)
-            resolve(x)
+            this.resolvePromise(onReject(this.reason), promise, resolve, reject)
           } catch (err) {
             reject(err)
           }
@@ -73,9 +108,8 @@ class Promise {
       } else {
         setTimeout(() => {
           try {
-            resolve(this.resolvePromise(onFulfill(this.data), promise))
+            this.resolvePromise(onFulfill(this.data), promise, resolve, reject)
           } catch (err) {
-            console.log('err: ', err);
             reject(err)
           }
         })
@@ -94,16 +128,16 @@ Promise.deferred = function () {
   return dfd;
 }
 
-const p = new Promise((res, rej)=>{
-  res(123)
-}).then(()=>p)
+// const p = new Promise((res, rej)=>{
+//   res(123)
+// }).then(()=>({then(res,rej){res(promise)}}))
 
-p.then(()=>{
-  console.log('dont')
-}, (e)=>{
-  console.log('e: ', e);
-})
-.then(()=>{console.log('res')}, ()=>{console.log('rej')})
+// p.then(()=>{
+//   console.log('dont')
+// }, (e)=>{
+//   console.log('e: ', e);
+// })
+// .then(()=>{console.log('res')}, ()=>{console.log('rej')})
 
 
 module.exports = Promise
