@@ -69,7 +69,7 @@ class Promise {
       }
     }
 
-    return resolve(x)
+    resolve(x)
   }
 
   then(onFulfill, onReject) {
