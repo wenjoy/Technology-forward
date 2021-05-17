@@ -75,7 +75,9 @@ class Promise {
   then(onFulfill, onReject) {
     onFulfill = typeof onFulfill === 'function' ? onFulfill : v => v
     onReject = typeof onReject === 'function' ? onReject : e => { throw e }
-    const promise = new Promise((resolve, reject) => {
+    let promise
+    // use const promise = new Promise may encounter problem `promise` referenced before defined, if does not use setTimeout, to avoid this error confused real reason to have to use `setTimeout`, the 2.2.4 specific, so I modify this line.
+    promise = new Promise((resolve, reject) => {
       if (this.state === PENDING) {
         this.onFulfilledCallbacks.push((d) => {
           setTimeout(() => {
@@ -107,6 +109,12 @@ class Promise {
         })
       } else {
         setTimeout(() => {
+          /**
+           * 必须用 setTimeout，规范里规定then 的回调不能立即执行
+           * platform code 指的是engine, environment, and promise implementation code. 也就是说，除了 v8 引擎等 core code，也就是我们写的程序都执行完。就等于说是异步执行。
+           * 2.2.4`onFulfilled` or `onRejected` must not be called until the execution context stack contains only platform code.
+           */
+
           try {
             this.resolvePromise(onFulfill(this.data), promise, resolve, reject)
           } catch (err) {
