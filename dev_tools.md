@@ -10,6 +10,7 @@
     - [panel](#panel)
 - [vim](#vim)
 - [wireshark](#wireshark)
+  - [1. cannot capture localhost packet](#1-cannot-capture-localhost-packet)
 - [tcpdump](#tcpdump)
 - [namp](#namp)
 - [grep](#grep)
@@ -162,6 +163,8 @@ see [this](https://unix.stackexchange.com/questions/131011/use-system-clipboard-
 this not works in `neovim`
 
 ## wireshark
+### 1. cannot capture localhost packet
+when start, select loopback interface, not en0.
 ## tcpdump
 ## namp
 ## grep
