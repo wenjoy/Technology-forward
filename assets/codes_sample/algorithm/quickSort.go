@@ -32,3 +32,26 @@ func quickSort(list []int) []int {
 	result = append(result, quickSort(right)...)
 	return result
 }
+
+func quickSortInPlace(list []int) {
+	sorter(list, 0, len(list)-1)
+}
+func sorter(list []int, left, right int) {
+	if left > right {
+		return
+	}
+	strainer := left
+	pivot := list[right]
+	for i:=left;i<right;i++ {
+		if(list[i]<pivot) {
+			swap(list, i, strainer)
+			strainer++
+		}
+	}
+	swap(list, strainer, right)
+	sorter(list, left, strainer-1)
+	sorter(list, strainer+1, right)
+}
+func swap(list []int, i, j int) {
+	list[i], list[j] = list[j], list[i]
+}
