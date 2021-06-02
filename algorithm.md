@@ -1,4 +1,9 @@
-# DS
+# DS and Algorithm
+## two pointer
+## binary find
+## Sliding Window Algorithm
+## Dynamic program
+### uniq path
 ## Sort
 ### quick sort
 see [code sample](./assets/codes_sample/algorithm/quickSort.go)
