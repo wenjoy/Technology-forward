@@ -33,9 +33,12 @@
 ### debug
 1. use `launch.json` to config debug
 2. fields in `launch.json`
-2.1 `name` is what display in the dropdown
-2.2 `type` can be `node` or others which will be supply be extension
+2.1 `name` is what display in the configure dropdown
+2.2 `type` can be `node` or others which will be supply be extension, such as `go`, `python`
 2.3 `request` is `launch` or `attach`
+Launch is launch a program as configured then start a vscode's inspector to attach to this process  
+Attach is just start a vscode's inspector to a running process. This process should be a node process launched by `node --inspect` or `node --inspect-brk`.
+Using `node --inspect` will execute until see a breakpoint but will not auto open debug gui, must run the `attach` debug config. `node --inspect-brk` will hang on first line of program.Only when start the inspector, the program will continue execute.
 
 an example for deno
 ```json

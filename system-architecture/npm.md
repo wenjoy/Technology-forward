@@ -22,6 +22,23 @@
     3.1 作者只想保留版权,而无任何其他了限制。也就是说，你必须在你的发行版里包含原许可协议的声明
     3.2 The practical differences between the 2-clause BSD license and the MIT license are marginal[BSD VS MIT](https://opensource.stackexchange.com/questions/217/what-are-the-essential-differences-between-the-bsd-and-mit-licences)
 
+
+### version conflict
+create sub directory  
+    node_modules
+    |_ A
+    |_ alpha @v1.0
+    |_ B
+        |_ node_modules
+            |_ alpha @v2.0
+see [How npm install Works Internally](https://dev.to/shree_j/how-npm-works-internally-4012)
+[npm3 works](http://npm.github.io/how-npm-works-docs/npm3/how-npm3-works.html)
+
+### peer dependency
+When develop plugin, such as `less-loader`, will need a `less` version, and user who use `less-loader` may also specify `less` as his dependency. `less-loader` should use `peerDependency`.  
+[yarn and npm handle peerDependency](https://zhuanlan.zhihu.com/p/237532427)
+
+
 ## yarn
 ### .yarnrc
 1. `yarn-path`
