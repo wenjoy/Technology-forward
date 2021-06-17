@@ -1,3 +1,12 @@
+- [TS & JS](#ts--js)
+  - [Node](#node)
+  - [misc](#misc)
+  - [javascript](#javascript)
+    - [Event](#event)
+  - [typescript](#typescript)
+    - [Knowledge](#knowledge)
+    - [FAQ:](#faq)
+    - [books](#books)
 # TS & JS
 
 ## Node
@@ -15,6 +24,21 @@ JavaScript中有2个获取码点（code point）的函数:
 `String.prototype.codePointAt(pos)`  
 
 codePointAt方法可以直接获取到码点，而使用charCodeAt必须调用两次，从而获取一对码点。两者对应和转换关系，请参见[Unicode与JavaScript](http://www.ruanyifeng.com/blog/2014/12/unicode.html)。
+
+### Event
+Because older browser is not support touch event, morden browser have to emulate mouse event to be capability of old website which only can handle `mouse event` not `touch event`, even now most browser support touch. `touch` will trigger:
+
+    touchstart
+    Zero or more touchmove events, depending on movement of the finger(s)
+    touchend
+    mousemove(this may trigger mouseenter or mouseleave)
+    mousedown
+    mouseup
+    click
+
+`mouseenter` is not bubble, it will trigger on every parent, may cause performance issue. It's simulation of `:hover`. `mouseover` is bubble, can be canceled.
+
+[see this](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Supporting_both_TouchEvent_and_MouseEvent) and [mouseenter vs mouseover](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event)
 
 ---
 
@@ -139,5 +163,14 @@ b = 'world'// Type '"world"' is not assignable to type '"hello"'
 [github battle ground](https://github.com/microsoft/TypeScript-Handbook/issues/121)
 [stack overflow battle ground](https://stackoverflow.com/questions/31876947/confused-about-the-interface-and-class-coding-guidelines-for-typescript/41967120#41967120)
 
-books
+15. allows unknown properties
+```ts
+interface IBaz {
+    baz: number;
+    [key: string]: any;
+}
+```  
+[see this](https://stackoverflow.com/questions/42723922/can-you-declare-a-object-literal-type-that-allows-unknown-properties-in-typescri)
+
+### books
 1. [深入理解 TypeScript](https://jkchao.github.io/typescript-book-chinese/project/compilationContext.html#tsconfig-json)
