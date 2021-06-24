@@ -38,5 +38,7 @@ A (lowest), AA (mid range), and AAA (highest)
 `<a>` without `href` cannot be focusable  
 [Why would an `a` tag need `tabindex=0`?](https://stackoverflow.com/questions/30740226/why-would-an-a-tag-need-tabindex-0)
 
+`aria-labeledby=[id]` 指定某个元素作为 `aria-label`? 什么使用场景呢？
+
 ## Ideas
 ### try to create a github project to dissect  most popular project structure

@@ -3,6 +3,7 @@
   - [misc](#misc)
   - [javascript](#javascript)
     - [Event](#event)
+    - [document](#document)
   - [typescript](#typescript)
     - [Knowledge](#knowledge)
     - [FAQ:](#faq)
@@ -39,6 +40,20 @@ Because older browser is not support touch event, morden browser have to emulate
 `mouseenter` is not bubble, it will trigger on every parent, may cause performance issue. It's simulation of `:hover`. `mouseover` is bubble, can be canceled.
 
 [see this](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Supporting_both_TouchEvent_and_MouseEvent) and [mouseenter vs mouseover](https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseenter_event)
+
+### document
+`document.activeElement` 当前获取焦点的元素
+
+`document.createRange()` 很少用到的 api，好像是做 selection 相关的功能会用到？
+```js
+// 获取 selection 对象
+ const selection = window.getSelection();
+
+ // 添加光标选择的范围
+ selection.addRange(range); // 这里接受的是 range 对象
+ ```
+
+ [see detail](https://blog.csdn.net/weixin_38080573/article/details/115030364)  
 
 ---
 
