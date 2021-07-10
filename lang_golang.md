@@ -189,6 +189,20 @@ func makeThing(name string) Thing {
 ### 19 type alias in go
 `type T1=T2` not `type T1 T2`
 
+### 20 declare function in function
+必须用赋值，不能再函数里面再声明函数，函数里面只能声明匿名函数
+```go
+func a() {
+  var b func()
+  b = func() {
+    b()
+  }
+}
+```
+
+### 21 the max number of int
+
+`math.MaxInt32`
 
 refs:
 1. https://learnku.com/docs/the-way-to-go
