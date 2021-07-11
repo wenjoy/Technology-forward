@@ -29,6 +29,8 @@ For 5, Handshake response
 send packet with these:  user name, password 
 ![](./assets/handshake_response.png)
 
+caching_sha2_password process
+
 ```mermaid
 sequenceDiagram
     autonumber
@@ -48,9 +50,11 @@ sequenceDiagram
             client->>server: Handshake response
         end
 
-        alt is Auth passed
+        server->>server: Check cache
+
+        alt is Fast path
         server->>client: OK packet. Jump to Command Phase
-        else is Auth more
+        else is Full auth
             rect rgb(50, 50, 0)
                 server->>client: Auth more packet
                 client->>server: request public key
