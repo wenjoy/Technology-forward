@@ -32,8 +32,49 @@ This will clone target repo then create `.gitmodules` and a `submodule commit`[d
 2. If firstly clone this repo, submodule `algorithm` and `job-interview` is empty directory  
 use `git submodule init` to init submodule configuration  
 use `git submodule update` to pull data and checkout to the `submodule commit`  
-3. If submodule has update  
+`git submodule update` is cd every submodule then execute `git pull` for you  
+3. If submodule remote repo has update  
 need to `cd` into the directory, then `git pull` to get update  
 the `submodule commit` will become the latest commit of submodule  
 or use `git submodule update --remote algorithm` to update submodule without `cd` into submodule
 4. use `git diff --submodule` to check submodule comment message
+5. change submodule url  
+Previously I used https for `algorithm`, but since I enable two factor validation for github, I can't pull data by input username and password in terminal, always get invalid username and password, even I make sure they are right. so I have to change the git repo url to ssh.   
+    5.1 change `.gitmodules` url
+      ```
+      [submodule "algorithm"]
+              path = algorithm
+              url = git@github.com:wenjoy/algorithm.git
+      [submodule "Job-interview"]
+              path = Job-interview
+              url = git@github.com:wenjoy/Job-interview.git
+      ```
+    5.2 use `git submodule sync --recursive` to sync data for submodules, can access `.git/modules` to check corresponding git config, like this:
+    ```
+        .
+    ├── Job-interview
+    │   ├── COMMIT_EDITMSG
+    │   ├── FETCH_HEAD
+    │   ├── HEAD
+    │   ├── ORIG_HEAD
+    │   ├── config
+    │   ├── description
+    │   ├── hooks
+    │   ├── index
+    │   ├── info
+    │   ├── logs
+    │   ├── objects
+    │   ├── packed-refs
+    │   └── refs
+    └── algorithm
+        ├── HEAD
+        ├── config
+        ├── description
+        ├── hooks
+        ├── index
+        ├── info
+        ├── logs
+        ├── objects
+        ├── packed-refs
+        └── refs
+```
