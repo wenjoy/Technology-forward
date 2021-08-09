@@ -1,6 +1,6 @@
 [submodule "algorithm"]
 	path = algorithm
-	url = https://github.com/wenjoy/algorithm.git
+	url = git@github.com:wenjoy/algorithm.git
 [submodule "Job-interview"]
 	path = Job-interview
 	url = git@github.com:wenjoy/Job-interview.git
