@@ -1,6 +1,7 @@
 - [TS & JS](#ts--js)
   - [Node](#node)
   - [misc](#misc)
+    - [npm](#npm)
   - [javascript](#javascript)
     - [Event](#event)
     - [document](#document)
@@ -17,6 +18,23 @@
 `./` is relative to where u  type the `node script.js` in command line
 
 process
+
+### npm
+`package.json` 中的module字段， 是制定es module规范的模块加载入口, 关于指定模块入口，可用的值有：
+```
+browser 
+browser+mjs
+module
+browser+cjs
+main
+```
+具体的优先级会有区别：
+1. 如果webpack的target是web， 优先级是：
+`browser = browser+mjs > module > browser+cjs > main`
+2. 如果webpack的target是node， 优先级是：
+ ·module > main·
+
+ 具体细节参考[package.json 中 你还不清楚的 browser，module，main 字段优先级](https://github.com/SunshowerC/blog/issues/8) and [聊聊 package.json 文件中的 module 字段](https://loveky.github.io/2018/02/26/tree-shaking-and-pkg.module/)
 
 ## javascript
 JavaScript中有2个获取码点（code point）的函数:
