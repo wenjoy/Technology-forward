@@ -1,5 +1,6 @@
 - [VS code](#vs-code)
   - [debug](#debug)
+  - [eslint prettier and editor-config](#eslint-prettier-and-editor-config)
 - [Tmux](#tmux)
   - [config](#config)
     - [let tmux use system clipboard](#let-tmux-use-system-clipboard)
@@ -57,6 +58,30 @@ an example for deno
     }
   ]
 }
+```
+
+### eslint prettier and editor-config
+1. eslint主要做代码质量相关的validate，比如未使用的变量， 也可以指定代码风格相关的，比如缩进，支持的很好，也可以autofix。但是对max-len的支持，只能校验，不会帮你去自动换行，这里就是prettier可以发挥的地方
+2. editor config是你写代码时候就生效的，比如按一下tab，缩进是tab还是空格，几个空格，但是对已经老代码是不会管的，而另外两者是对写完的代码去校验和格式化。onType或者onSave
+3. 要配置eslint自动移除没有使用的import要用这个[eslint-plugin-unused-imports](https://github.com/sweepline/eslint-plugin-unused-imports#usage)
+
+参考：
+https://blog.csdn.net/Bruski/article/details/115416048  
+[ESLint，Prettier 和 EditorConfig 简介](https://juejin.cn/post/6924249306039844872)  
+
+an `eslintrc` example, 缩进和自动remote unused import:
+
+```yml
+  "plugins": ["unused-imports"],
+  rules: {
+    "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ],
+    'indent': ["error", 2],
+  },
 ```
 
 ## Tmux
