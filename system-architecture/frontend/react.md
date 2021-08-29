@@ -1,3 +1,13 @@
+
+## What is controlled component and uncontrolled component
+The form element like `input` has a internal state which is controlled by DOM.  
+- if we controlled it by `onchange` event, it's called controlled component. Because we controlled the state.  
+- if we use `ref` to get the value, it's called uncontrolled component. Because the DOM controlled the state, not us.
+
+`<input type="file" />` is a special case. It's always uncontrolled component. Because it's value only changed by user(i.e. select file form the prompt), cant be set by programmatically.
+
+see this article [受控和非受控组件真的那么难理解吗](https://juejin.cn/post/6858276396968951822)
+
 ## FAQ
 1. I encounter a problem:  
 
