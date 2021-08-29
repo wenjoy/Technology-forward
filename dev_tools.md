@@ -1,6 +1,7 @@
 - [VS code](#vs-code)
   - [debug](#debug)
   - [eslint prettier and editor-config](#eslint-prettier-and-editor-config)
+  - [prettier plugin not work](#prettier-plugin-not-work)
 - [Tmux](#tmux)
   - [config](#config)
     - [let tmux use system clipboard](#let-tmux-use-system-clipboard)
@@ -83,6 +84,22 @@ an `eslintrc` example, 缩进和自动remote unused import:
     'indent': ["error", 2],
   },
 ```
+
+### prettier plugin not work
+
+It's not out of the box , you need to config this in your `settings.json`:
+```json
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+```
+
+This is [Language-specific editor settings](https://code.visualstudio.com/docs/getstarted/settings#_languagespecific-editor-settings), it means we only specify `js` and `jsx` to format by prettier.
+
+language level's setting has the highest precedence then workspace level than user level.
 
 ## Tmux
 
