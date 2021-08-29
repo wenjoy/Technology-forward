@@ -18,13 +18,21 @@ top等可以是负值
 
 ----
 
-#Dom
-##scrollHeight
+# DOM API
+
+## window.ActiveElement
+the element which got focus
+
+## URL.createObjectURL(blob)
+create a url point to memory for special file or blob. For example can create a url for an image in memory and pass to `<img />` src, rather than a remote url
+difference between `FileReader.readAsDataURL(file)` and `URL.createObjectURL(blob)` see this [URL.createObjectURL()的使用方法](https://blog.csdn.net/qq_39258552/article/details/84133770)
+## size
+- scrollHeight
 整体高度
-##clientHeight
+- clientHeight
 content + padding
-##offsetHeight
+- offsetHeight
 content + padding + border + scrollbar
-##offsetTop
-##scrollTop
+- offsetTop
+- scrollTop
 滚动条的距离
