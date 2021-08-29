@@ -42,7 +42,7 @@ I don't have `Monofur Nerd Font`, but it's doesn't raise the problem. Just not w
 Then I set family to `monaco for powerline`, it displays normally.
 
 mac have application called `Font Book` can check all fonts installed in your mac.  
-`FontForge` is an application of font. Mail used to create font. You can use it to check the details of installed font. it can display the graph at special unicode, including all unicode.
+`FontForge` is an application of font. Mainly it is used to create font. You can use it to check the details of installed font. it can display the graph at special unicode, including all unicode.
 
 Detail of font `Monaco for PowerLine`:  
 ![](./assets/font_detail.png)
