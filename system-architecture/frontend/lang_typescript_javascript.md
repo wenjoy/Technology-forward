@@ -1,4 +1,8 @@
 - [TS & JS](#ts--js)
+  - [module](#module)
+    - [ES6 module](#es6-module)
+      - [specify](#specify)
+    - [commonjs](#commonjs)
   - [Node](#node)
   - [misc](#misc)
     - [npm](#npm)
@@ -10,6 +14,37 @@
     - [FAQ:](#faq)
     - [books](#books)
 # TS & JS
+
+## module
+### ES6 module
+
+#### specify
+1. it's static
+2. cannot use in conditions
+3. import must be const, not variable
+
+3. `export` and `import`
+4. named export  
+`export const name = 'moment'`
+3. default export  
+```js
+//test.js
+const name = 'test'
+export default name
+
+//how to  use
+import anyName from './test'
+```
+4. export from  
+default module:  
+`export {default as anyName } form 'test'`
+named module:  
+`export { name } form 'test'`
+
+### commonjs
+mount on `exports`
+
+
 
 ## Node
 
