@@ -5,7 +5,6 @@ https://blog.bitsrc.io/building-a-react-component-library-d92a2da8eab9
 
 https://javascript.plainenglish.io/react-monorepo-using-yarn-workspaces-only-no-lerna-766c7a395140
 
-https://nx.dev/latest/react/core-concepts/why-monorepos#monorepos
 
 https://github.com/lerna/lerna
 
@@ -15,5 +14,7 @@ https://www.codenong.com/j5eb4c7d4f265da7bd9704483/
 
 https://yarnpkg.com/cli/link#gatsby-focus-wrapper
 
+https://nx.dev/latest/react/core-concepts/why-monorepos#monorepos
 https://rushjs.io/pages/intro/get_started/
+https://harmony-docs.bit.dev/getting-started/installing-bit
 
