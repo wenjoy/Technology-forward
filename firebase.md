@@ -84,3 +84,4 @@ crashlytics
 5. record error
 6. send data when app first launch(kill and reopen)
 7. firebase api `https://reports.crashlytics.com` `-- method: post`
+
