@@ -1,0 +1,93 @@
+{
+  "main": {
+    "id": "55193436671e7381",
+    "type": "split",
+    "children": [
+      {
+        "id": "6c1733887fb63fff",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "cs-basic/encode.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "74a0b96b96e70cf1",
+    "type": "split",
+    "children": [
+      {
+        "id": "b24d5174cc510887",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e03c3a375713a46c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "e927f2e3ed69c2cb",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "006cb74577d70e63",
+    "type": "split",
+    "children": [
+      {
+        "id": "9d865fa5a123e863",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "07bc3c5806d35ea3",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "cs-basic/encode.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "6c1733887fb63fff",
+  "lastOpenFiles": [
+    "cs-basic/encode.md"
+  ]
+}
