@@ -1,5 +1,9 @@
 # Docker
 
+## install docker
+
+`brew install --cask --appdir=/Applications docker` 
+
 `docker pull mysql` download image    
 `docker images` list downloaded images    
 `docker run --name yoursql -e MYSQL_ROOT_PASSWORD=123 -d mysql` run instance from image, `mysql:tag` omit means use `latest` tag    

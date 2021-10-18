@@ -35,4 +35,30 @@ JavaBean 是一种JAVA语言写成的可重用组件。JavaBean符合一定规�
 
 
 ## POJO
- "Plain Ordinary Java Object"，简单普通的java对象。主要用来指代那些没有遵循特定的java对象模型，约定或者框架的对象
+"Plain Ordinary Java Object"，简单普通的java对象。主要用来指代那些没有遵循特定的java对象模型，约定或者框架的对象
+
+ ## JDK, JRE, JVM
+ JDK 就是java开发的全家桶，包括了JRE和JVM，以及一些工具，像是javac用来编译java代码到class字节码
+
+JRE更轻量，只为了运行class字节码，是个RUN time。不编译，一般服务器上可以只装个JRE
+
+JVM就是虚拟机
+
+可以参考这篇，讲得很清晰了：[面经手册 · 第23篇《JDK、JRE、JVM，是什么关系？》](https://segmentfault.com/a/1190000038620833)
+
+
+
+## 安装JDK
+
+`brew install --cask homebrew/cask-versions/adoptopenjdk8`
+
+jdk太混乱了，有多个版本，最主要的是orcale的和第三方adopt OpenJDK， 安装参考[macOS 所有版本 JDK 安装指南 (with Homebrew)](https://www.cnblogs.com/imzhizi/p/macos-jdk-installation-homebrew.html)
+
+## 安装Maven
+
+`brew install maven`
+
+`mvn -v` 查看版本
+
+java到依赖管理， 类比node的NPM，廖雪峰的教程讲得很详细了[Maven介绍](https://www.liaoxuefeng.com/wiki/1252599548343744/1309301146648610)
+
