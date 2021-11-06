@@ -118,77 +118,77 @@ see [this](https://unix.stackexchange.com/questions/131011/use-system-clipboard-
 ### usage
 #### session
   1. 创建  
-  `tmux new` 不指定session name
-  `tmux new -s` [session-name]
+    `tmux new` 不指定session name
+    `tmux new -s` [session-name]
 
   2. 删除Session  
-  `tmux kill-session -t [session-name]`
-  `tmux kill-server`
+    `tmux kill-session -t [session-name]`
+    `tmux kill-server`
 
   3. 列出当前Session  
-  `tmux ls`
-  `Prefix s` # tmux 内
+    `tmux ls`
+    `Prefix s` # tmux 内
 
   4. 恢复Session  
-  `tmux a -t [session-name]`
-  `tmux a`
+    `tmux a -t [session-name]`
+    `tmux a`
 
   5. 断开Session  
-  `tmux detach`
-  `Prefix d`
+    `tmux detach`
+    `Prefix d`
 
   6. 重命名Session  
-  `Prefix $`
+    `Prefix $`
 
 #### window
   1. 创建  
-  `Prefix c`
+    `Prefix c`
 
   2. 选择窗口  
-  `Prefix + [number]` # 选择第n个窗口
-  `Prefix + p/n`	# 前/后一个窗口
+    `Prefix + [number]` # 选择第n个窗口
+    `Prefix + p/n`	# 前/后一个窗口
 
   3. 关闭窗口  
-  `Prefix &`
-  `exit`
+    `Prefix &`
+    `exit`
 
   4. 列出所有window（包含其他Session）  
-  `Prefix w `
-  `j/k # 前后选择`
+    `Prefix w `
+    `j/k # 前后选择`
 
   5. 搜索窗口  
-  `Prefix f`
+    `Prefix f`
 
   6. 重命名当前窗口  
-  `Prefix ,`
+    `Prefix ,`
 
 #### panel
   1. 创建  
-  `Prefix %	# 水平窗格`
-  `Prefix '"'	# 垂直窗格`
+    `Prefix %	# 水平窗格`
+    `Prefix '"'	# 垂直窗格`
 
   2. 关闭  
-  `Prefix x`
+    `Prefix x`
 
   3. 切换  
-  `Prefix o` # 在窗格间切换
-  `Prefix q`	# 显示pane编号，输入编号切换
+    `Prefix o` # 在窗格间切换
+    `Prefix q`	# 显示pane编号，输入编号切换
 
   4. 将当前窗格切换到新窗口  
-  `Prefix ！`
+    `Prefix ！`
 
   5. 窗格交换位置  
-  `Prefix + {` or `Prefix + }`
+    `Prefix + {` or `Prefix + }`
 
   6. resize panel see [this](https://dev.to/michael/resizing-panes-in-tmux-2da7)  
-  `:resize-pane -D (Resizes the current pane down by 1 cell)`
+    `:resize-pane -D (Resizes the current pane down by 1 cell)`
 
   7. change panel layout  
-  `Prefix Space`
-  will cycle through 5 available panel layouts, see [this](https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux) get more
+    `Prefix Space`
+    will cycle through 5 available panel layouts, see [this](https://superuser.com/questions/493048/how-to-convert-2-horizontal-panes-to-vertical-panes-in-tmux) get more
 
   8. change title  
-  Just for people who came here by searching how to change the title of a tmux session:
+    Just for people who came here by searching how to change the title of a tmux session:
 
   `Prefix $` or `tmux rename-window -t <window> <newname>`
 
@@ -246,7 +246,7 @@ see [here](https://stackoverflow.com/questions/57410051/chrome-not-showing-optio
 edit `/etc/shells`, add `/usr/local/bin/fish` to it
 
 2. set prompt path to shorthand:
-  `set -U fish_prompt_pwd_dir_length {n}`, 0 mean use full path, `n` means use first `n` character represent the full path.
+    `set -U fish_prompt_pwd_dir_length {n}`, 0 mean use full path, `n` means use first `n` character represent the full path.
 
 #### config
 `~/.config/fish/config.fish`
@@ -295,3 +295,21 @@ PS: Portable Operating System Interface，缩写为`POSIX`. 是IEEE为要在各�
   `basename` extract only the script name from full path  
   `basename $0` --> `ant.sh` !!no `./` prefix any more  
   `$* / $@` all arguments
+
+### Linux
+
+[软连接和硬连接](https://www.jianshu.com/p/dde6a01c4094)
+
+|                 |        |                                         |
+| --------------- | ------ | --------------------------------------- |
+| ln file_path    | 硬连接 | 指向同一个block，inode相同              |
+| ln -s file_path | 软连接 | inode不同，只是对目标文件path的一个指向 |
+
+硬连接使用场景较少，一般只有备份会用到，比如：
+
+`git` 工具，当克隆本地的一个仓库时，执行 `clone` 指令：
+
+```
+
+git clone --reference <repository>
+```

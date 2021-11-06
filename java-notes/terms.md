@@ -62,3 +62,22 @@ jdk太混乱了，有多个版本，最主要的是orcale的和第三方adopt Op
 
 java到依赖管理， 类比node的NPM，廖雪峰的教程讲得很详细了[Maven介绍](https://www.liaoxuefeng.com/wiki/1252599548343744/1309301146648610)
 
+## JAVA_HOME
+
+Maven 管理的项目启动过程报错，设置了java home就可以了
+
+```bash
+module jdk.compiler does not export com.sun.tools.javac.processing to unnamed module @0x5803052
+```
+
+有些java的框架会用到这个环境变变量，所以玩java项目最好设置好这个，以免不必要的麻烦，细节可以参考这篇文章[Java为什么要设置环境变量、JAVA_HOME](https://blog.csdn.net/u010297957/article/details/51334951)
+
+Mac 下java home的路径一般是这样的：
+
+`/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home`
+
+## JAR包是什么
+
+是个java的各种文件的压缩包，有的jar包是可执行的，执行命令：
+
+`java -jar test.jar` 可以参考这篇文章[关于 JAR 包我们应该知道的](https://www.jianshu.com/p/2b2e7d7fb160)

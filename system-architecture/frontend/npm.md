@@ -50,3 +50,9 @@ issues open:close = 157/527 bugs: 51/355
    cause: `npmRegistryServer` config wrong url
 2. The nearest package directory doesn't seem to be part of the project declared at /Users/georgexie
    https://github.com/yarnpkg/berry/issues/1050
+
+FAQ:
+
+1. `npm publish` got error “You must sign up for private packages”?
+
+   npm default can’t publish priate package, but lerna cant’ pass params . so need to set rpm config. `npm config set access public`. See this :[You need to provide `--access public`](https://github.com/lerna/lerna/issues/1821).
