@@ -2,7 +2,16 @@
 
 js 诞生之初，没有模块系统。runtime是操作系统的语言几乎都有模块系统，但是js最初设计是运行在浏览器上，所以没有设计模块功能。但奇怪的是，即使是小弟css都有引入模块的功能`@import` 。 前端模块化跟后端不一样的一个地方是，有下载的过程，先由浏览器把文件从服务器下载下来，然后再读入到内存中。不像后端语言，直接把文件读入内存就行。js是通过`<script>`  来下载的。
 
-es module出现之前，社区等不及，自己推出了规范 amd，例如requirejs和玉伯的seajs。后来nodejs出现，推出模块规范commonjs，commonjs的出现大行其道，终于倒逼ecma推出了es module。
+es module出现之前，社区等不及，自己推出了规范 amd，例如requirejs和玉伯的seajs。后来nodejs出现，推出模块规范commonjs，commonjs的出现大行其道，终于倒逼ecma推出了es module
+
+| Module Name |                                                              |
+| ----------- | ------------------------------------------------------------ |
+| AMD         | require js                                                   |
+| UMD         | umd不能算是一种模块规范，因为它没有模块定义和调用，这是AMD和CommonJS（服务端模块化规范)的结合体，保证模块可以被amd和commonjs调用。 |
+| CommonJS    | 为 Node.js 创建的模块化系统                                  |
+| ES Module   |                                                              |
+
+
 
 ## es module 基本使用
 
