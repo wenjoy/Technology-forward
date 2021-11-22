@@ -1,3 +1,5 @@
+
+
 gzip
 
 gzip 是一种压缩的格式，主要是针对文本的。在http中广泛被利用来优化静态资源比如html，css，js 这些文本资源的传输速度。相关规范是[RFC 1952](https://link.juejin.cn/?target=https%3A%2F%2Ftools.ietf.org%2Fhtml%2Frfc1952)。

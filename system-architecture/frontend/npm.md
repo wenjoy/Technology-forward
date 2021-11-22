@@ -42,7 +42,17 @@ When develop plugin, such as `less-loader`, will need a `less` version, and user
 ## yarn
 ### .yarnrc
 1. `yarn-path`
-Instructs yarn to defer to another Yarn binary for execution. Useful if you want to bundle Yarn into your repository and have everyone use the same version for consistency.
+  Instructs yarn to defer to another Yarn binary for execution. Useful if you want to bundle Yarn into your repository and have everyone use the same version for consistency.
+
+2. `registry`
+
+  Yarn 的必须用引号包裹，否则不生效
+
+  registry "http://npm.demo.ued.g7s.chinawayltd.com/”
+
+  npmrc 是这样的
+
+  registry=http://npm.demo.ued.g7s.chinawayltd.com/
 
 ## yarn berry
 issues open:close = 157/527 bugs: 51/355
