@@ -336,3 +336,14 @@ PS: Portable Operating System Interface，缩写为`POSIX`. 是IEEE为要在各�
 
 git clone --reference <repository>
 ```
+
+## SSH
+免密登录，即公钥登录的原理
+
+    所谓"公钥登录"，原理很简单，就是用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机用事先储存的公钥进行解密，如果成功，就证明用户是可信的，直接允许登录shell，不再要求密码。
+
+[阮老师链接](https://www.ruanyifeng.com/blog/2011/12/ssh_remote_login.html)
+
+遇到个问题：  
+目标机已经加了我的私钥，但是我执行 `ssh 172.27.130.68` 还是报错，后来试了试 ` ssh root@172.27.130.68 ` 就可以了。原来默认的用户名是我本机的用户名，我的前一种方式等价于`ssh wenjoy@172.27.130.68`. 但是目标机上根本没有这个用户的，只有一个root用户。  
+如果要增加用户，参考https://blog.csdn.net/WoBenZiYou/article/details/101465198。 然后在这个用户目录下增加authrizedKeys就可以
