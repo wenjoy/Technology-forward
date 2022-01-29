@@ -411,4 +411,16 @@ react 的 context？
 
 #### Hooks呢？
 
+### 响应式API
+
+fef 和 reactive的区别
+
+ref = reactive({value: 1})
+
+reactive 只能接受引用类型变量
+
+
+
+
+
 #### 递归组件
