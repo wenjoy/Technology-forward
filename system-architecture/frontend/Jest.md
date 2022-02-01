@@ -120,3 +120,8 @@ Object.defineProperty(window, 'matchMedia', {
 });
 ```
 
+4.   TypeError: Cannot read properties of undefined (reading 'cwd')
+
+   jest 和 babel-jest的版本不匹配
+
+   举例，我的web-vue 依赖了 Arco design，他的jest版本是26.x，但是monorepo的顶层jest和babel-jest都是27.x，因为子packge和顶层的jest版本冲突，bin文件里的jest就指向了web-vue的依赖arco指定的版本26.x，但是babel-jest又没指定，就用了顶层的27.x。就会报此错。还是尽量用pnpm啊，npm和yarn坑死人。这里还是有点奇怪啊，为啥我运行jest命令会跑到arco里面的jest，不是应该层层往上找jest吗
