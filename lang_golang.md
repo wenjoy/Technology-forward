@@ -208,3 +208,27 @@ refs:
 1. https://learnku.com/docs/the-way-to-go
 2. https://www.oreilly.com/library/view/introducing-go/9781491941997/
 3. [Implement of Go data structure](https://flaviocopes.com/golang-data-structures/)
+
+### FAQ:
+
+1. go项目的依赖
+
+   首先确认go的env和version
+
+   `go env` list所有的go相关的环境变量，  `go version` 显示当前版本
+
+   注意其中的`GOPATH` `GOPROXY` 
+
+   go 会在GOPATH下找依赖的module
+
+   因为有些资源需要翻墙，需要设置GOPROXY，`export GOPROXY=https://goproxy.io,direct` 参考：https://goproxy.io/zh/
+
+   设置完GOPATH，遇到了这个错误could not create module cache: mkdir /User: read-only file system
+
+   应该是我设置的GOPATH  ` export GOPATH=/User/wenjoy/workspace/studio/go`没有权限, 用`chown -R` 应该可以解决，我用了reset到默认gopath的办法，也可以解决
+
+   go从1.1之后就支持go mod了，以后遇到go的项目都可以用这种方式来解决依赖，之前是依赖GOPATH，安装依赖是靠手动`go get github.com/davecgh/go-spew/spew` 这样。
+
+   用go mod的方式是，先在root下`go mod init <mod_name>`，会生成go.mod, 然后执行`go mod tidy` , 就会自动安装依赖,生产go.sum文件
+
+   Go mod参考这个https://juejin.cn/post/6844903798658301960
