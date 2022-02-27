@@ -122,3 +122,12 @@ This isn't active over one year
 use `code .` to open vscode, the shell in terminal is decided by the current shell:
 if current shell is `zsh`, the vscode integrated terminal also use `zsh`  
 if current shell is `fish`, the vscode integrated terminal also use `fish`  
+
+UT和ESlint
+
+[聊聊前端代码覆盖率 (长文慎入)](https://testerhome.com/topics/24122?order_by=created_at&)
+
+[用「增量」思想提升代码检查和打包构建的效率](https://juejin.cn/post/6865101730166767623)
+
+[内容非常详细！领略Eslint代码检查的四种姿势](https://developer.51cto.com/article/650933.html)
+
