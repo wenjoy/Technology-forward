@@ -1,0 +1,1 @@
+我写浏览器插件黑京东系统，结果发现报错，原来是京东系统把原生Map给覆盖了，搞了个它自己的垃圾玩意儿。而且我还不能覆盖它。查了一下它怎么做到的。原来就是声明了一个全局函数Map，它就自动在window下挂载了Map，而且把es6的Map覆盖了。甚至连defineProperty的configurable都是false，我不能用Object.defineProperty覆盖它。 [Why cannot redefine property?](https://stackoverflow.com/questions/44052813/why-cannot-redefine-property) 这个回答详细介绍了原因
