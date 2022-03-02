@@ -228,6 +228,17 @@ see [this](https://unix.stackexchange.com/questions/131011/use-system-clipboard-
 `:w !sudo tee %` why this works? see [this](https://stackoverflow.com/questions/2600783/how-does-the-vim-write-with-sudo-trick-work)
 this not works in `neovim`
 
+与缩进相关的参数有shiftwidth、tabstop、softtabstop、expandtab
+shiftwidth reindent 操作（<<和>>）时缩进的列数（这里的一列相当于一个空格）
+tabstop 定义一个tab所占的列数
+softtabstop 敲入tab键时实际占有的列数
+expandtab 输入tab时自动将其转化为空格
+查看：
+:set $arg（这里的arg是变量，值就是上面的那些参数），比如：set softtabstop
+设置：
+:set softtabstop=4 shiftwidth=4 expandtab
+:set tabstop=8 softtabstop=8 shiftwidth=8 noexpandtab
+
 ## wireshark
 ### 1. cannot capture localhost packet
 when start, select loopback interface, not en0.
