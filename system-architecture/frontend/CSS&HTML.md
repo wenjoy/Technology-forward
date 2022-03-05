@@ -36,3 +36,14 @@ content + padding + border + scrollbar
 - offsetTop
 - scrollTop
 滚动条的距离
+
+## Table
+
+table以及td宽度设置细节:
+
+`table-layout: auto` td的宽度由内容决定，设置宽度无效
+
+`table-layout: fix` 只可以为首行的td设置宽度
+
+参考：https://www.jianshu.com/p/0b027c877a0d
+
