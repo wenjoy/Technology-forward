@@ -22,6 +22,12 @@ HTTP/1.1的队头阻塞问题
 
 这个讲得很透彻[关于队头阻塞（Head-of-Line blocking），看这一篇就足够了](https://zhuanlan.zhihu.com/p/330300133)
 
+如果我们可以将每个文件的有效荷载（header）分成更小的片（pieces）或“块”（chunks），我们就可以在网络上混合或“交错”（interleave）这些块：为 JS 发送一个块，为 CSS 发送一个块，然后再发送另一个用于 JS，等等，直到文件被下载为止。使用这种方法，较小的CSS文件将更早地下载（并且可用），同时只将较大的JS文件延迟一点。这就是多路复用。
+
+为啥http1.1不能用这种交替的方式呢，因为http1.1的response是文本，无法判断是否结束，是否开始。而http2.0的response是数据帧，其中有数据的id和这个包数据内容的长度。如下图：
+
+![img](../v2-7df511c33a71380a891107aecc978cf8_b.png)
+
 **http的keep-alive又起了什么作用呢?** 
 
 在 HTTP 1.0 中默认是关闭的，如果浏览器要开启 Keep-Alive，它必须在请求的包头中添加`Connection: Keep-Alive`
