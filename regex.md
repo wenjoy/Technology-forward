@@ -19,6 +19,13 @@ refs:
 [MDN Regular_Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 [正则表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions)
 
+### 正则表达式的贪婪模式
+
+
+
+参考这篇文章， 形象的描述了正则的匹配过程https://www.jianshu.com/p/7fa165acd51e
+
 ## tool
+
 [online visualized tool](https://regexr.com/)
 [online visualized tool2](https://regex101.com/)
