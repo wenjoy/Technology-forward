@@ -11,3 +11,5 @@ https://github.com/reproduce-here/arco-form-control-problem
 一开始以为受控组件就是会这样，于是我自己写了一个简单的受控组件，后来才发现是arco的control组件的问题，它只在构造函数里使用一次initialValue，难怪我后面传进去的initialValue不生效呢。
 
 ![image-20220327192340707](/Users/wenjoy/workspace/studio/Technology-forward/assets/image-20220327192340707.png)
+
+我发现了这篇回答https://stackoverflow.com/questions/30727837/react-change-input-defaultvalue-by-passing-props，也解释了类似的现象。看起来不是arco组件设计有问题，initialValue和defaultValue本来就是期待只初始化一次。而且他的回答跟我的思路也是一样的，毁掉form重新构建，比如设置合适的key。
