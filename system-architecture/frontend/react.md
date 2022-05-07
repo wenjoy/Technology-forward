@@ -8,6 +8,15 @@ The form element like `input` has a internal state which is controlled by DOM.
 
 see this article [受控和非受控组件真的那么难理解吗](https://juejin.cn/post/6858276396968951822)
 
+## React hooks implementation
+I found a great artical to understand react hooks by implemnt a very simple hooks, see [Deep dive: How do React hooks really work?](https://www.netlify.com/blog/2019/03/11/deep-dive-how-do-react-hooks-really-work/). 
+
+During reading I cannot understand varialbe stale question. I write a very simple example at `assets/codes_sample/react/stale.js`. also a go version. It turns out it's not about language.
+
+## useEffect vs useLayoutEffect
+as this post said, https://daveceddia.com/useeffect-vs-uselayouteffect/ `useLayoutEffect` used when u see your app flicker. because it block the render before really render to screen. this post `https://www.jianshu.com/p/22460d6cb4f9`reveal the source code of `useLayoutEffect`
+
+
 ## FAQ
 1. I encounter a problem:  
 
